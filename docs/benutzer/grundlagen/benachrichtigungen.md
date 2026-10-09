@@ -1,24 +1,17 @@
 # Benachrichtigungen per E-Mail oder in Atrion
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Festlegen, ob du Nachrichten per E-Mail oder nur in Atrion erhältst.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Öffne über dein Profilbild **Meine Präferenzen** und wähle unter **Benachrichtigung** entweder **Per E-Mail** oder **In Odoo**. Speichere mit **Präferenzen aktualisieren**.
 
-## Video
+    ![Öffne über dein Profilbild Meine Präferenzen und wähle unter Benachrichtigung entweder Per E-Mail oder In Odoo](../../assets/screenshots/benachrichtigungen/01-einstellung.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+## Hinweise
 
-## Hinweise und Fehlermeldungen
-
-Hinweise zu MCP-Bestätigungen und Audit-Ereignissen kommen über denselben Weg
-
-<small>Medien aus Test `test_doku_grundlagen_benachrichtigungen`</small>
+- **In Odoo** heisst: Nachrichten erscheinen nur im Posteingang von Atrion, siehe [Posteingang und Erwähnungen](posteingang.md).

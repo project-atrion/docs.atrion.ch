@@ -1,19 +1,17 @@
 # Datensatz duplizieren
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Eine Kopie eines Eintrags als Vorlage für einen neuen anlegen.
 
 ## Wer darf das
 
-Schreiben im Modul
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Öffne den Eintrag, klicke neben dem Titel auf **⋮** und wähle **Duplizieren**. Atrion öffnet die Kopie, die du anpassen und speichern kannst.
 
-## Hinweise und Fehlermeldungen
+    ![Öffne den Eintrag, klicke neben dem Titel auf ⋮ und wähle Duplizieren](../../assets/screenshots/duplizieren/01-aktion.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_duplizieren`</small>
+- Felder, die eindeutig sein müssen (zum Beispiel ein Login), übernimmt Atrion nicht unverändert.

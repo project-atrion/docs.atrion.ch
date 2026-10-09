@@ -1,24 +1,17 @@
-# Anhänge hinzufügen und ansehen
+# Anhänge hinzufügen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Dateien an einen Eintrag anhängen.
 
 ## Wer darf das
 
-alle
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Klicke rechts oben im Formular auf die Büroklammer und wähle die Datei aus. Du kannst Dateien auch direkt auf den Verlauf ziehen.
 
-## Video
+    ![Klicke rechts oben im Formular auf die Büroklammer und wähle die Datei aus](../../assets/screenshots/anhaenge/01-bueroklammer.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+## Hinweise
 
-## Hinweise und Fehlermeldungen
-
-*Keine Atrion-spezifischen Hinweise.*
-
-<small>Medien aus Test `test_doku_grundlagen_anhaenge`</small>
+- Anhänge erscheinen über dem Verlauf; ein Klick öffnet die Vorschau.

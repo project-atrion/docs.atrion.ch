@@ -1,24 +1,22 @@
 # Suchen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Datensätze in einer Liste schnell finden.
 
 ## Wer darf das
 
-alle
+Alle Personen, die die Liste sehen dürfen. Das Beispiel zeigt die Benutzerliste unter **Einstellungen › Benutzer & Unternehmen › Benutzer**; sie ist nur für die Administration sichtbar. In jeder anderen Liste funktioniert es gleich.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Klicke in das Suchfeld und tippe den Begriff ein. Atrion schlägt vor, in welchem Feld gesucht wird.
 
-## Video
+    ![Klicke in das Suchfeld und tippe den Begriff ein](../../assets/screenshots/suchen/01-suchbegriff.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Drücke **Enter**. Die Liste zeigt nur noch die Treffer, der Suchbegriff steht als Kästchen im Suchfeld.
 
-## Hinweise und Fehlermeldungen
+    ![Drücke Enter](../../assets/screenshots/suchen/02-ergebnis.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_suchen`</small>
+- Mit dem **×** im Kästchen hebst du die Suche wieder auf.
+- Mehrere Begriffe im selben Feld werden mit **oder** verknüpft, Begriffe in verschiedenen Feldern mit **und**.

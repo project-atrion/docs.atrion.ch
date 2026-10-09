@@ -1,19 +1,21 @@
 # Abmelden
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Die Sitzung in diesem Browser beenden.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Klicke oben rechts auf dein Profilbild und wähle **Abmelden**.
 
-## Hinweise und Fehlermeldungen
+    ![Klicke oben rechts auf dein Profilbild und wähle Abmelden](../../assets/screenshots/abmelden/01-benutzermenue.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+2. Du bist abgemeldet und siehst wieder die Anmeldeseite.
 
-<small>Medien aus Test `test_doku_grundlagen_abmelden`</small>
+    ![Du bist abgemeldet und siehst wieder die Anmeldeseite](../../assets/screenshots/abmelden/02-abgemeldet.png)
+
+## Hinweise
+
+- Um dich auf allen Geräten gleichzeitig abzumelden, siehe [Von allen Geräten abmelden](alle-geraete-abmelden.md).

@@ -1,25 +1,17 @@
-# Profil, Foto und E-Mail-Signatur
+# Profil und E-Mail-Signatur
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Foto, Kontaktangaben und E-Mail-Signatur pflegen.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Öffne über dein Profilbild **Meine Präferenzen**. Fahre über das Bild, um ein Foto hochzuladen, und ergänze die **E-Mail-Signatur**. Speichere mit **Präferenzen aktualisieren**.
 
-## Video
+    ![Öffne über dein Profilbild Meine Präferenzen](../../assets/screenshots/profil-und-signatur/01-praeferenzen.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+## Hinweise
 
-## Hinweise und Fehlermeldungen
-
-*Keine Atrion-spezifischen Hinweise.*
-
-<small>Medien aus Test `test_doku_grundlagen_profil_und_signatur`</small>
+- Die Signatur wird an Nachrichten angehängt, die du aus Atrion versendest.

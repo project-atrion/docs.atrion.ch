@@ -1,53 +1,194 @@
-/* Atrion-Branding nach Figma-Styleguide: Navy #0b1f3a, Orange #ff7a1a, Sky #bfe3ff, Schrift Outfit */
+/* Atrion-Branding nach Figma-Styleguide
+   Navy #0b1f3a · Orange #ff7a1a · Sky #bfe3ff · Subtle #eaf5ff · Schrift Outfit
+   Orange nie als Schriftfarbe auf hellem Grund (Styleguide), nur als Akzent. */
+
+/* ---------- Hell ---------- */
 :root,
 [data-md-color-scheme="default"] {
+  --atrion-navy: #0b1f3a;
+  --atrion-orange: #ff7a1a;
+  --atrion-sky: #bfe3ff;
+  --atrion-subtle: #eaf5ff;
+
   --md-primary-fg-color: #0b1f3a;
   --md-primary-fg-color--light: #1c3559;
   --md-primary-fg-color--dark: #06142a;
-  --md-primary-bg-color: #ffffff;
-  --md-accent-fg-color: #ff7a1a;
-  --md-accent-fg-color--transparent: rgba(255, 122, 26, 0.1);
-  --md-typeset-a-color: #c4560a;
+  --md-primary-bg-color: #0b1f3a;
+  --md-primary-bg-color--light: rgba(11, 31, 58, 0.7);
+  --md-accent-fg-color: #c4560a;
+  --md-accent-fg-color--transparent: rgba(255, 122, 26, 0.12);
+
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: rgba(11, 31, 58, 0.92);
+  --md-default-fg-color--light: rgba(11, 31, 58, 0.66);
+  --md-default-fg-color--lighter: rgba(11, 31, 58, 0.32);
+  --md-default-fg-color--lightest: rgba(11, 31, 58, 0.08);
+  --md-typeset-color: #0b1f3a;
+  --md-typeset-a-color: #0b1f3a;
+  --md-code-bg-color: #f3f7fb;
+  --md-code-fg-color: #0b1f3a;
+  --md-footer-bg-color: #0b1f3a;
+  --md-footer-bg-color--dark: #06142a;
+
+  --atrion-header-bg: #ffffff;
+  --atrion-linie: #dfe8f1;
+  --atrion-flaeche: #eaf5ff;
+  --atrion-flaeche-hover: #bfe3ff;
+  --atrion-logo: url("../images/logo-navy.svg");
+  --atrion-link-linie: rgba(255, 122, 26, 0.55);
 }
 
+/* ---------- Dunkel ---------- */
 [data-md-color-scheme="slate"] {
+  --md-hue: 215;
   --md-primary-fg-color: #0b1f3a;
-  --md-primary-fg-color--light: #1c3559;
-  --md-primary-fg-color--dark: #06142a;
-  --md-accent-fg-color: #ff7a1a;
-  --md-typeset-a-color: #ff9a4d;
-  --md-default-bg-color: #0a1526;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-accent-fg-color: #ff9a4d;
+  --md-accent-fg-color--transparent: rgba(255, 122, 26, 0.16);
+
+  --md-default-bg-color: #0b1f3a;
+  --md-default-fg-color: rgba(234, 245, 255, 0.92);
+  --md-default-fg-color--light: rgba(234, 245, 255, 0.7);
+  --md-default-fg-color--lighter: rgba(234, 245, 255, 0.36);
+  --md-default-fg-color--lightest: rgba(234, 245, 255, 0.1);
+  --md-typeset-color: #eaf5ff;
+  --md-typeset-a-color: #ffb27a;
+  --md-code-bg-color: #081830;
+  --md-code-fg-color: #eaf5ff;
+  --md-footer-bg-color: #06142a;
+  --md-footer-bg-color--dark: #040e1e;
+
+  --atrion-header-bg: #081830;
+  --atrion-linie: #1c3559;
+  --atrion-flaeche: #13294a;
+  --atrion-flaeche-hover: #1c3559;
+  --atrion-logo: url("../images/logo-weiss.svg");
+  --atrion-link-linie: rgba(255, 154, 77, 0.6);
 }
 
-.md-header, .md-tabs { background-color: #0b1f3a; }
-.md-tabs__link--active, .md-tabs__link:hover { color: #ff7a1a; }
+/* ---------- Header: nur das Logo ---------- */
+.md-header {
+  background-color: var(--atrion-header-bg);
+  color: var(--md-primary-bg-color);
+  box-shadow: none;
+  border-bottom: 1px solid var(--atrion-linie);
+}
+.md-header__title { visibility: hidden; }
+.md-header__button.md-logo {
+  width: 8.5rem;
+  height: 2.4rem;
+  margin: 0.2rem 0.4rem;
+  padding: 0;
+  background: var(--atrion-logo) left center / auto 1.75rem no-repeat;
+}
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg { visibility: hidden; }
+.md-header__button, .md-header .md-source { color: var(--md-primary-bg-color); }
 
-.md-typeset h1 { font-weight: 600; color: var(--md-default-fg-color); }
+/* Reiter unter dem Header */
+.md-tabs {
+  background-color: var(--atrion-header-bg);
+  color: var(--md-primary-bg-color);
+  border-bottom: 1px solid var(--atrion-linie);
+}
+.md-tabs__link { opacity: 0.8; font-weight: 500; }
+.md-tabs__link:hover, .md-tabs__link:focus { color: inherit; opacity: 1; }
+.md-tabs__item--active { border-bottom: 3px solid #ff7a1a; }
+.md-tabs__item--active .md-tabs__link { opacity: 1; }
+
+/* Suche */
+.md-search__form { background-color: var(--atrion-flaeche); border-radius: 8px; }
+.md-search__form:hover { background-color: var(--atrion-flaeche-hover); }
+.md-search__input, .md-search__input::placeholder, .md-search__icon { color: var(--md-default-fg-color); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form { background-color: var(--md-default-bg-color); }
+
+/* Mobile Navigation: Kopf der Seitenleiste wie der Header */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background: var(--atrion-header-bg);
+    color: var(--md-default-fg-color);
+    border-bottom: 1px solid var(--atrion-linie);
+  }
+  .md-nav--primary .md-nav__title .md-nav__button.md-logo {
+    width: 8.5rem;
+    height: 2.4rem;
+    background: var(--atrion-logo) left center / auto 1.6rem no-repeat;
+  }
+  .md-nav--primary .md-nav__title .md-nav__button.md-logo img { visibility: hidden; }
+}
+
+/* ---------- Typografie und Links ---------- */
+.md-typeset h1 { font-weight: 600; color: var(--md-typeset-color); letter-spacing: -0.01em; }
 .md-typeset h2 { font-weight: 600; }
+.md-typeset a {
+  text-decoration: underline;
+  text-decoration-color: var(--atrion-link-linie);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 2px;
+}
+.md-typeset a:hover { color: var(--md-accent-fg-color); text-decoration-color: currentColor; }
+.md-nav__link--active, .md-nav__item .md-nav__link--active { color: var(--md-typeset-color); font-weight: 600; }
+.md-nav__link:hover, .md-nav__link:focus { color: var(--md-accent-fg-color); }
 
-.md-typeset .admonition.info,
-.md-typeset details.info { border-color: #ff7a1a; }
-.md-typeset .info > .admonition-title,
-.md-typeset .info > summary { background-color: rgba(255, 122, 26, 0.1); }
-.md-typeset .info > .admonition-title::before,
-.md-typeset .info > summary::before { background-color: #ff7a1a; }
+/* Tabellen */
+.md-typeset table:not([class]) { border: 1px solid var(--atrion-linie); border-radius: 8px; box-shadow: none; }
+.md-typeset table:not([class]) th { background-color: var(--atrion-flaeche); color: var(--md-typeset-color); }
+.md-typeset table:not([class]) td { border-top-color: var(--atrion-linie); }
 
-.atrion-karten { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-.atrion-karten a { display: block; padding: 1rem 1.2rem; border-radius: 12px; background: #eaf5ff; color: #0b1f3a; text-decoration: none; }
-.atrion-karten a:hover { background: #bfe3ff; }
-.atrion-karten strong { display: block; font-size: 1.05rem; margin-bottom: 0.3rem; }
-[data-md-color-scheme="slate"] .atrion-karten a { background: #13294a; color: #eaf5ff; }
-[data-md-color-scheme="slate"] .atrion-karten a:hover { background: #1c3559; }
+/* Codeblöcke und Tastenkürzel */
+.md-typeset pre > code, .md-typeset code { border-radius: 6px; }
+.md-typeset kbd { background-color: var(--atrion-flaeche); color: var(--md-typeset-color); box-shadow: inset 0 -1px 0 var(--atrion-linie); }
 
-.md-header, .md-header__title, .md-header__topic, .md-tabs__link, .md-source { color: #ffffff; }
+/* Hinweisboxen */
+.md-typeset .admonition, .md-typeset details {
+  border-color: var(--atrion-orange, #ff7a1a);
+  background-color: var(--atrion-flaeche);
+  box-shadow: none;
+}
+.md-typeset .admonition-title, .md-typeset summary { background-color: rgba(255, 122, 26, 0.12) !important; }
+.md-typeset .admonition-title::before, .md-typeset summary::before { background-color: #ff7a1a !important; }
+
+/* Screenshots */
+.md-typeset img[src*="/screenshots/"] {
+  display: block;
+  margin: 0.6rem 0 1.2rem;
+  border: 1px solid var(--atrion-linie);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(11, 31, 58, 0.08);
+}
+
+/* ---------- Startseite: zwei Karten ---------- */
+.atrion-karten { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.2rem; margin: 2rem 0; }
 .atrion-karten > p { display: contents; }
-.md-typeset .admonition.info, .md-typeset details.info { background-color: #eaf5ff; }
-[data-md-color-scheme="slate"] .md-typeset .admonition.info { background-color: #13294a; }
-.md-tabs__item--active .md-tabs__link { color: #ff7a1a; }
-.md-header .md-search__button, .md-header .md-search__input::placeholder, .md-header .md-search__icon { color: #ffffff; }
+.md-typeset .atrion-karten a {
+  display: block;
+  padding: 1.6rem 1.6rem 1.8rem;
+  border-radius: 16px;
+  background: var(--atrion-flaeche);
+  color: var(--md-typeset-color);
+  text-decoration: none;
+  border: 1px solid var(--atrion-linie);
+  border-top: 4px solid #ff7a1a;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.md-typeset .atrion-karten a:hover { background: var(--atrion-flaeche-hover); color: var(--md-typeset-color); transform: translateY(-2px); }
+.atrion-karten strong { display: block; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
 
-/* Outfit lokal, Code in der Systemschrift */
+/* ---------- Schrift: Outfit lokal, Code in der Systemschrift ---------- */
 :root { --md-text-font: "Outfit"; --md-code-font: "SFMono-Regular"; --md-text-font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif; --md-code-font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 body, input { font-family: var(--md-text-font-family); }
 code, kbd, pre { font-family: var(--md-code-font-family); }
-.md-header__button.md-logo img, .md-header__button.md-logo svg { height: 1.5rem; width: auto; }
+
+/* Logo auch auf schmalen Bildschirmen im Header zeigen */
+@media screen and (max-width: 76.234375em) {
+  .md-header__inner > label.md-header__button[for="__drawer"] { order: -1; }
+  .md-header__button.md-logo { display: block; width: 6.5rem; background-size: auto 1.4rem; margin: 0.2rem 0.2rem 0.2rem 0.4rem; }
+}
+
+/* Aktiver Menüpunkt: Navy-Schrift, Orange nur als Fläche (Styleguide: kein oranger Text auf Hell) */
+.md-nav__link--active, .md-nav__item .md-nav__link--active { color: var(--md-typeset-color) !important; }
+
+/* Vimeo-Einbettung (siehe README, Abschnitt Videos) */
+.atrion-video { position: relative; aspect-ratio: 16 / 10; margin: 1rem 0 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--atrion-linie); }
+.atrion-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

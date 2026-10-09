@@ -1,19 +1,18 @@
 # Zeitzone einstellen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Die Zeitzone festlegen, in der Atrion Daten und Uhrzeiten anzeigt.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Öffne über dein Profilbild **Meine Präferenzen**, wechsle zum Reiter **Kalender**, wähle unter **Zeitzone** deine Zeitzone und klicke auf **Präferenzen aktualisieren**.
 
-## Hinweise und Fehlermeldungen
+    ![Öffne über dein Profilbild Meine Präferenzen, wechsle zum Reiter Kalender, wähle unter Zeitzone deine Zeitzone und klicke auf Präferenzen aktualisieren](../../assets/screenshots/zeitzone-einstellen/01-reiter-kalender.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_zeitzone_einstellen`</small>
+- Standard ist Europa/Zürich.
+- Im selben Reiter hinterlegst du unter **Abwesend** eine Abwesenheitsnachricht.

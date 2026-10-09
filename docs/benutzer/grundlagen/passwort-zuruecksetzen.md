@@ -1,26 +1,21 @@
 # Passwort zurücksetzen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Ein neues Passwort setzen, wenn du dein Passwort vergessen hast.
 
 ## Wer darf das
 
-öffentlich
+Alle Personen mit einem Benutzerkonto, ohne Anmeldung.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
-5. *Schritt 5, Screenshot folgt.*
+1. Klicke auf der Anmeldeseite neben **Passwort** auf **Passwort zurücksetzen**.
 
-## Video
+    ![Klicke auf der Anmeldeseite neben Passwort auf Passwort zurücksetzen](../../assets/screenshots/passwort-zuruecksetzen/01-link.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Gib deine E-Mail-Adresse ein und klicke auf **Passwort zurücksetzen**. Du erhältst eine E-Mail mit einem Link, über den du ein neues Passwort setzt.
 
-## Hinweise und Fehlermeldungen
+    ![Gib deine E-Mail-Adresse ein und klicke auf Passwort zurücksetzen](../../assets/screenshots/passwort-zuruecksetzen/02-formular.png)
 
-Links verfallen nach Odoo-Standard. Technische Benutzer API haben kein Passwort-Login
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_passwort_zuruecksetzen`</small>
+- Kommt keine E-Mail an, prüfe den Spam-Ordner oder wende dich an die Administration. Sie kann dein Passwort auch direkt setzen, siehe [Passwort einer Person zurücksetzen](passwort-fuer-andere-zuruecksetzen.md).

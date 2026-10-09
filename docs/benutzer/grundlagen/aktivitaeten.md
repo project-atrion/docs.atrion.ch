@@ -1,25 +1,21 @@
-# Aktivitäten planen und erledigen
+# Aktivitäten planen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Eine Aufgabe mit Fälligkeit zu einem Eintrag planen.
 
 ## Wer darf das
 
-alle
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Klicke rechts im Formular auf **Aktivität**. Wähle die Art (zum Beispiel **To-do** oder **Anruf**), das Fälligkeitsdatum und die zuständige Person und klicke auf **Speichern**.
 
-## Video
+    ![Klicke rechts im Formular auf Aktivität](../../assets/screenshots/aktivitaeten/01-planen.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Alle deine Aktivitäten siehst du oben rechts beim Uhr-Symbol. Mit **Alle Aktivitäten anzeigen** öffnest du die Übersicht.
 
-## Hinweise und Fehlermeldungen
+    ![Alle deine Aktivitäten siehst du oben rechts beim Uhr-Symbol](../../assets/screenshots/aktivitaeten/02-uebersicht.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_aktivitaeten`</small>
+- **Als erledigt markieren** schliesst die Aktivität sofort ab.

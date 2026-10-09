@@ -1,26 +1,22 @@
 # Importieren
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Daten aus einer Excel- oder CSV-Datei in eine Liste übernehmen.
 
 ## Wer darf das
 
-Schreiben im Modul
+Alle Personen, die die Liste sehen dürfen. Das Beispiel zeigt die Benutzerliste unter **Einstellungen › Benutzer & Unternehmen › Benutzer**; sie ist nur für die Administration sichtbar. In jeder anderen Liste funktioniert es gleich.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
-5. *Schritt 5, Screenshot folgt.*
+1. Klicke neben dem Listentitel auf **⋮** und wähle **Importieren**.
 
-## Video
+    ![Klicke neben dem Listentitel auf ⋮ und wähle Importieren](../../assets/screenshots/importieren/01-menue.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Klicke auf **Hochladen** oder ziehe die Datei in das Fenster. Atrion ordnet die Spalten zu; prüfe die Zuordnung und starte den Import.
 
-## Hinweise und Fehlermeldungen
+    ![Klicke auf Hochladen oder ziehe die Datei in das Fenster](../../assets/screenshots/importieren/02-importseite.png)
 
-Mandate entstehen nie per Import, nur über «Mandat eröffnen»
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_importieren`</small>
+- Am einfachsten exportierst du zuerst ein paar Einträge und verwendest die Datei als Vorlage.
+- **Testen** prüft die Datei, ohne etwas zu speichern.

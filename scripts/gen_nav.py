@@ -13,10 +13,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 TOML = ROOT / "zensical.toml"
 REIHENFOLGE = {
-    "benutzer": ["grundlagen", "audit", "basis", "einstellungen", "api", "mcp"],
-    "technik": ["api", "mcp", "datenmodell", "audit", "erweiterung", "betrieb"],
+    "benutzer": ["grundlagen"],
+    "technik": [],
 }
-OBEN = [("Start", "index.md"), ("Benutzer", "benutzer"), ("Technik", "technik"), ("Versionen", "versionen.md")]
+OBEN = [("Start", "index.md"), ("Benutzer", "benutzer"), ("Technik", "technik/index.md")]
 
 
 def titel(datei):

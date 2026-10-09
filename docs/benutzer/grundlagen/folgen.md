@@ -1,19 +1,17 @@
 # Datensätzen folgen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Bei Änderungen und Nachrichten zu einem Eintrag benachrichtigt werden.
 
 ## Wer darf das
 
-alle
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Klicke rechts oben im Formular auf das Personen-Symbol. Mit **Folgen** folgst du dem Eintrag, mit **Follower hinzufügen** lädst du weitere Personen ein.
 
-## Hinweise und Fehlermeldungen
+    ![Klicke rechts oben im Formular auf das Personen-Symbol](../../assets/screenshots/folgen/01-follower.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_folgen`</small>
+- Die Zahl neben dem Symbol zeigt, wie viele Personen dem Eintrag folgen.

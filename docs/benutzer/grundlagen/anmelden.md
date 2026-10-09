@@ -1,24 +1,27 @@
 # Anmelden
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Mit E-Mail und Passwort bei Atrion anmelden.
 
 ## Wer darf das
 
-öffentlich
+Alle Personen mit einem Benutzerkonto.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Öffne die Adresse deiner Atrion-Instanz. Es erscheint die Anmeldeseite.
 
-## Video
+    ![Öffne die Adresse deiner Atrion-Instanz](../../assets/screenshots/anmelden/01-anmeldeseite.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Gib deine **E-Mail** und dein **Passwort** ein und klicke auf **Login**.
 
-## Hinweise und Fehlermeldungen
+    ![Gib deine E-Mail und dein Passwort ein und klicke auf Login](../../assets/screenshots/anmelden/02-zugangsdaten.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+3. Nach der Anmeldung siehst du die Startseite mit deinen Apps.
 
-<small>Medien aus Test `test_doku_grundlagen_anmelden`</small>
+    ![Nach der Anmeldung siehst du die Startseite mit deinen Apps](../../assets/screenshots/anmelden/03-startseite.png)
+
+## Hinweise
+
+- Mit dem Auge neben dem Passwortfeld blendest du das Passwort ein und aus.
+- Ist die Zwei-Faktor-Anmeldung eingeschaltet, fragt Atrion nach dem Passwort zusätzlich nach dem Code aus deiner Authenticator-App.
+- Passwort vergessen? Siehe [Passwort zurücksetzen](passwort-zuruecksetzen.md).
