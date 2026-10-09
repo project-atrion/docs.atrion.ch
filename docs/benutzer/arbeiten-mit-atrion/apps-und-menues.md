@@ -20,6 +20,10 @@ Alle angemeldeten Personen.
 
     ![Mit dem Symbol oben links kommst du jederzeit zur Startseite zurück](../../assets/screenshots/apps-und-menues/03-zurueck-zur-startseite.png)
 
+<!-- video -->
+<div class="atrion-video"><iframe src="https://player.vimeo.com/video/1234425189?dnt=1&title=0&byline=0&portrait=0" title="Video: Apps und Menüs" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+<!-- /video -->
+
 ## Hinweise
 
 - Welche Apps du siehst, hängt von deinen Zugriffsrechten ab.

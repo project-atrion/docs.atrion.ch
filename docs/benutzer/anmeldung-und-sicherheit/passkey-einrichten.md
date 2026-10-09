@@ -20,6 +20,10 @@ Alle angemeldeten Personen.
 
     ![Der Passkey erscheint unter Passkeys mit dem Datum der letzten Verwendung](../../assets/screenshots/passkey-einrichten/03-eingerichtet.png)
 
+<!-- video -->
+<div class="atrion-video"><iframe src="https://player.vimeo.com/video/1234425160?dnt=1&title=0&byline=0&portrait=0" title="Video: Passkey einrichten" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+<!-- /video -->
+
 ## Hinweise
 
 - Ein Passkey gilt für das Gerät bzw. den Passwortmanager, mit dem du ihn erstellt hast. Für weitere Geräte richtest du je einen eigenen Passkey ein.

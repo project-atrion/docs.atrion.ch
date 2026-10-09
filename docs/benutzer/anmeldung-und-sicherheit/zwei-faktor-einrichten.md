@@ -20,6 +20,10 @@ Alle angemeldeten Personen.
 
     ![Im Reiter Sicherheit steht jetzt, dass die Zwei-Faktor-Anmeldung eingeschaltet ist](../../assets/screenshots/zwei-faktor-einrichten/03-aktiviert.png)
 
+<!-- video -->
+<div class="atrion-video"><iframe src="https://player.vimeo.com/video/1234425132?dnt=1&title=0&byline=0&portrait=0" title="Video: Zwei-Faktor-Anmeldung einrichten" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+<!-- /video -->
+
 ## Hinweise
 
 - Geeignet sind zum Beispiel Microsoft Authenticator, Google Authenticator oder ein Passwortmanager mit Codes.

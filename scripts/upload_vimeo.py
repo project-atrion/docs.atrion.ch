@@ -14,7 +14,7 @@ das nicht, fällt das Skript auf «nicht gelistet» zurück. Danach stehen ID un
 media.lock.json, die ID in docs/register.yaml, und die Seite bekommt die Einbettung.
 
 Der Token (Personal Access Token von developer.vimeo.com/apps) braucht die Scopes
-public, private, create, edit, upload und video_files. Er kommt nur aus VIMEO_TOKEN.
+public, private, create, edit, upload und video_files, für den Ordner zusätzlich interact. Er kommt nur aus VIMEO_TOKEN.
 """
 import csv
 import hashlib
@@ -140,7 +140,9 @@ def main():
         tus(link, datei)
         anfrage("PUT", f"/videos/{vid}/privacy/domains/{DOMAIN}")
         if ordner:
-            anfrage("PUT", f"{ordner}/videos/{vid}")
+            code, _, _ = anfrage("PUT", f"{ordner}/videos/{vid}", fehler_ok=True)
+            if code >= 400:  # braucht den Scope «interact»
+                print(f"  Hinweis: Video nicht in den Ordner verschoben (HTTP {code}, Token ohne Scope interact)")
         eintrag["vimeo"] = {"id": vid, "sha256": hash_}
         id_eintragen(slug, vid)
         einbetten(slug, vid, zeile["titel"])

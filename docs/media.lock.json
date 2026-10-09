@@ -43,6 +43,10 @@
       "datei": "anmelden.mp4",
       "sha256": "46da94b7ff48176eeaa7939def5ba0dd5d53ef977bba09697bf49e1beca2a813",
       "eingabe": "e8ee0ca83842e914050c56dd81f30c18b925c290c0d29a218dfe256e4f0fef09"
+    },
+    "vimeo": {
+      "id": "1234424919",
+      "sha256": "46da94b7ff48176eeaa7939def5ba0dd5d53ef977bba09697bf49e1beca2a813"
     }
   },
   "ansichten-wechseln": {
@@ -63,6 +67,10 @@
       "datei": "apps-und-menues.mp4",
       "sha256": "43d6984f63f473043f634983dc4d0ae7de7fa0f975e7f076e787ca91ad15cc53",
       "eingabe": "d716e180a960512263b9b2e887ee43259b73b0cd457935970c560ed4ae7273b7"
+    },
+    "vimeo": {
+      "id": "1234425189",
+      "sha256": "43d6984f63f473043f634983dc4d0ae7de7fa0f975e7f076e787ca91ad15cc53"
     }
   },
   "archivieren-und-loeschen": {
@@ -189,6 +197,10 @@
       "datei": "passkey-einrichten.mp4",
       "sha256": "8f6fa0d0e032c1da8aaeac3d769316e6b05b82d4957f80b4c804b2c1ce02f6e8",
       "eingabe": "c8de5987461a64ae0cb1a59bd50da9c75d8dc90503ecaa4285f1052165babc95"
+    },
+    "vimeo": {
+      "id": "1234425160",
+      "sha256": "8f6fa0d0e032c1da8aaeac3d769316e6b05b82d4957f80b4c804b2c1ce02f6e8"
     }
   },
   "passkey-entfernen": {
@@ -210,6 +222,10 @@
       "datei": "passwort-aendern.mp4",
       "sha256": "0c290a9709c798a342548167b0c6be1dca86e76556c7ebebedbad82b59212724",
       "eingabe": "f0779041499da35c7371508ec9ce94c0c44b1b3c92708c3f105c4f63a8c5809f"
+    },
+    "vimeo": {
+      "id": "1234425112",
+      "sha256": "0c290a9709c798a342548167b0c6be1dca86e76556c7ebebedbad82b59212724"
     }
   },
   "passwort-fuer-andere-zuruecksetzen": {
@@ -302,6 +318,10 @@
       "datei": "zwei-faktor-einrichten.mp4",
       "sha256": "6f2e23fa6d17278fc1c89458f280cdac11fa5dc827118f9c8c45448a8954a074",
       "eingabe": "67c201b8610bb13e55f8a058a6bb15f909cc72f338cb56ca308ae325f6b094a1"
+    },
+    "vimeo": {
+      "id": "1234425132",
+      "sha256": "6f2e23fa6d17278fc1c89458f280cdac11fa5dc827118f9c8c45448a8954a074"
     }
   }
 }
