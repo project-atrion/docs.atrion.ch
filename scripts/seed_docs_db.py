@@ -70,8 +70,10 @@ for i, (name, funktion, ort) in enumerate(LEUTE):
     if not env["res.users.log"].search_count([("create_uid", "=", u.id)]):
         env["res.users.log"].with_user(u).sudo().create({})
 
-# Jutta meldet sich für die Seiten zur Zwei-Faktor-Anmeldung selbst an (gleiches Passwort)
-leute["Jutta Musterfrau"].write({"password": E["ATRION_PASSWORD"]})
+# Jutta meldet sich für die Seiten zur Zwei-Faktor-Anmeldung selbst an (gleiches Passwort).
+# Rolle «User» statt «Light», damit sie nach der Anmeldung Apps sieht.
+leute["Jutta Musterfrau"].write({"password": E["ATRION_PASSWORD"],
+                                 "group_ids": [(4, env.ref("base.group_user_regular").id)]})
 
 # Zwei-Faktor und Passkeys zurücksetzen, damit jeder Lauf gleich beginnt
 ids = tuple([admin.id] + [u.id for u in leute.values()])
