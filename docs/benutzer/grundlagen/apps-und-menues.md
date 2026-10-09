@@ -1,24 +1,25 @@
 # Apps und Menüs
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Zwischen den Apps wechseln und ihre Menüs nutzen.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Nach der Anmeldung zeigt die Startseite alle Apps, die du nutzen darfst. Klicke auf eine App, um sie zu öffnen.
 
-## Video
+    ![Nach der Anmeldung zeigt die Startseite alle Apps, die du nutzen darfst](../../assets/screenshots/apps-und-menues/01-startseite.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. In der App stehen die Menüs oben in der Leiste. Ein Menü mit Untermenüs klappt beim Klicken auf.
 
-## Hinweise und Fehlermeldungen
+    ![In der App stehen die Menüs oben in der Leiste](../../assets/screenshots/apps-und-menues/02-app-menue.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+3. Mit dem Symbol oben links kommst du jederzeit zur Startseite zurück.
 
-<small>Medien aus Test `test_doku_grundlagen_apps_und_menues`</small>
+    ![Mit dem Symbol oben links kommst du jederzeit zur Startseite zurück](../../assets/screenshots/apps-und-menues/03-zurueck-zur-startseite.png)
+
+## Hinweise
+
+- Welche Apps du siehst, hängt von deinen Zugriffsrechten ab.

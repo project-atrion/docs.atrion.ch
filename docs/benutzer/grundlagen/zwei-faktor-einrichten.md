@@ -1,26 +1,23 @@
 # Zwei-Faktor-Anmeldung einrichten
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Das Konto zusätzlich mit einem Code aus einer Authenticator-App schützen.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
-5. *Schritt 5, Screenshot folgt.*
+1. Öffne über dein Profilbild **Meine Präferenzen**, Reiter **Sicherheit**, und klicke bei **Zwei-Faktor-Authentifizierung** auf **2FA aktivieren**. Bestätige danach mit deinem Passwort.
 
-## Video
+    ![Öffne über dein Profilbild Meine Präferenzen, Reiter Sicherheit, und klicke bei Zwei-Faktor-Authentifizierung auf 2FA aktivieren](../../assets/screenshots/zwei-faktor-einrichten/01-reiter-sicherheit.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Scanne den Barcode mit deiner Authenticator-App, gib den angezeigten Code unter **Verifizierungscode** ein und klicke auf **Zwei-Faktor-Authentifizierung aktivieren**.
 
-## Hinweise und Fehlermeldungen
+    ![Scanne den Barcode mit deiner Authenticator-App, gib den angezeigten Code unter Verifizierungscode ein und klicke auf Zwei-Faktor-Authentifizierung aktivieren](../../assets/screenshots/zwei-faktor-einrichten/02-qr-code.png)
 
-Pflicht für Personen mit Administrieren in einer Atrion-App oder Systemadministration, wenn die Betriebsrichtlinie es verlangt
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_zwei_faktor_einrichten`</small>
+- Geeignet sind zum Beispiel Microsoft Authenticator, Google Authenticator oder ein Passwortmanager mit Codes.
+- Klappt das Scannen nicht, zeigt **Scannen klappt nicht?** den Schlüssel zum Abtippen.
+- Ab der nächsten Anmeldung fragt Atrion nach dem Passwort auch nach dem Code.

@@ -3,3 +3,6 @@ site/
 __pycache__/
 .venv/
 .DS_Store
+docs-videos/
+*.webm
+*.mp4

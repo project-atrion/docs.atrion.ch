@@ -1,26 +1,21 @@
 # Passwort einer Person zurücksetzen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Für eine Person ein neues Passwort setzen oder ihr einen Link zum Zurücksetzen senden.
 
 ## Wer darf das
 
-Systemadministration
+Nur die Administration (Rolle **Administrator** im Benutzerformular).
 
 ## Schritte
 
-Aktion «Anweisungen zum Zurücksetzen des Passworts senden» im Benutzerformular
+1. Öffne die Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer** und klicke neben dem Titel auf **⋮**. Wähle **Passwort ändern** oder **Anweisungen zum Zurücksetzen des Passworts versenden**.
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+    ![Öffne die Person unter Einstellungen › Benutzer & Unternehmen › Benutzer und klicke neben dem Titel auf ⋮](../../assets/screenshots/passwort-fuer-andere-zuruecksetzen/01-aktion.png)
 
-## Video
+2. Bei **Passwort ändern** bestätigst du zuerst mit deinem eigenen Passwort. Gib dann das neue Passwort ein und klicke auf **Passwort ändern**.
 
-*Das Video folgt automatisch aus dem Browsertest.*
+    ![Bei Passwort ändern bestätigst du zuerst mit deinem eigenen Passwort](../../assets/screenshots/passwort-fuer-andere-zuruecksetzen/02-dialog.png)
 
-## Hinweise und Fehlermeldungen
+## Hinweise
 
-Links verfallen nach Odoo-Standard. Technische Benutzer API haben kein Passwort-Login
-
-<small>Medien aus Test `test_doku_grundlagen_passwort_fuer_andere_zuruecksetzen`</small>
+- Sicherer ist der Link per E-Mail: So kennt nur die Person selbst ihr Passwort.

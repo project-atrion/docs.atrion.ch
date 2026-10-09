@@ -6,7 +6,8 @@ Prüft:
   R2  Jede Seite unter benutzer/ und technik/ (ausser index.md) steht im Register.
   R3  Jeder Funktionsschlüssel kommt höchstens einmal vor.
   R4  Benutzerseiten haben die Pflichtabschnitte.
-  R5  Jeder relative Link zeigt auf eine vorhandene Datei.
+  R5  Jeder relative Link und jedes Bild zeigt auf eine vorhandene Datei.
+  R6  Jede Benutzerseite hat mindestens einen Screenshot und keinen Abschnitt «Video».
 """
 import pathlib
 import re
@@ -16,7 +17,8 @@ import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
-PFLICHT_BENUTZER = ["## Wer darf das", "## Schritte", "## Hinweise und Fehlermeldungen"]
+PFLICHT_BENUTZER = ["## Wer darf das", "## Schritte", "## Hinweise"]
+BILD = re.compile(r"!\[[^\]]*\]\(([^)\s]+)\)")
 LINK = re.compile(r"\]\(([^)\s#]+)(?:#[^)]*)?\)")
 
 fehler = []
@@ -48,6 +50,10 @@ for datei in sorted(DOCS.rglob("*.md")):
             for kopf in PFLICHT_BENUTZER:
                 if kopf not in text:
                     fehler.append(f"R4 Abschnitt «{kopf[3:]}» fehlt: docs/{rel}.md")
+            if not BILD.search(text):
+                fehler.append(f"R6 Kein Screenshot: docs/{rel}.md")
+            if "## Video" in text:
+                fehler.append(f"R6 Abschnitt «Video» nicht erlaubt: docs/{rel}.md")
     for ziel in LINK.findall(text):
         if re.match(r"^[a-z]+:", ziel):
             continue

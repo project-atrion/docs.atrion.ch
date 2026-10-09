@@ -1,24 +1,17 @@
 # Von allen Geräten abmelden
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Alle offenen Sitzungen beenden, zum Beispiel wenn ein Gerät verloren ging.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Öffne über dein Profilbild **Meine Präferenzen**, Reiter **Sicherheit**. Unter **Geräte** siehst du alle angemeldeten Browser. Mit **Abmelden** beendest du eine einzelne Sitzung, mit **Von allen Geräten abmelden** alle.
 
-## Video
+    ![Öffne über dein Profilbild Meine Präferenzen, Reiter Sicherheit](../../assets/screenshots/alle-geraete-abmelden/01-knopf.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+## Hinweise
 
-## Hinweise und Fehlermeldungen
-
-*Keine Atrion-spezifischen Hinweise.*
-
-<small>Medien aus Test `test_doku_grundlagen_alle_geraete_abmelden`</small>
+- Nach dem Abmelden von allen Geräten musst du dich auch im aktuellen Browser neu anmelden.

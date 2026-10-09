@@ -1,19 +1,21 @@
 # Änderungen verwerfen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Noch nicht gespeicherte Änderungen zurücknehmen.
 
 ## Wer darf das
 
-Schreiben im Modul
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Sobald du ein Feld änderst, erscheinen neben dem Titel das Wolken-Symbol (speichern) und das **×** (verwerfen).
 
-## Hinweise und Fehlermeldungen
+    ![Sobald du ein Feld änderst, erscheinen neben dem Titel das Wolken-Symbol (speichern) und das × (verwerfen)](../../assets/screenshots/aenderungen-verwerfen/01-geaendert.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+2. Klicke auf **×**. Das Formular zeigt wieder den gespeicherten Stand.
 
-<small>Medien aus Test `test_doku_grundlagen_aenderungen_verwerfen`</small>
+    ![Klicke auf ×](../../assets/screenshots/aenderungen-verwerfen/02-verworfen.png)
+
+## Hinweise
+
+- Bereits gespeicherte Änderungen lassen sich so nicht zurücknehmen.

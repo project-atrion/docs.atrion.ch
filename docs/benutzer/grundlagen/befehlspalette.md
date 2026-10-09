@@ -1,24 +1,22 @@
 # Befehlspalette
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Menüs, Befehle und Unterhaltungen über die Tastatur finden.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Drücke **Ctrl + K** (Mac: **Cmd + K**). Die Befehlspalette öffnet sich mit den häufigsten Befehlen.
 
-## Video
+    ![Drücke Ctrl + K (Mac: Cmd + K)](../../assets/screenshots/befehlspalette/01-geoeffnet.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Tippe **/** und einen Begriff, um Menüs zu suchen, zum Beispiel **/Benutzer**. Mit **Enter** öffnest du den markierten Eintrag.
 
-## Hinweise und Fehlermeldungen
+    ![Tippe / und einen Begriff, um Menüs zu suchen, zum Beispiel /Benutzer](../../assets/screenshots/befehlspalette/02-suche.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_befehlspalette`</small>
+- Mit **@** suchst du Personen und Unterhaltungen.
+- Die Befehlspalette erreichst du auch über dein Profilbild › **Shortcuts**.

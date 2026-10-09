@@ -1,19 +1,17 @@
 # Tastaturkürzel
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Knöpfe und Menüs ohne Maus bedienen.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Halte auf einer beliebigen Seite **Alt** gedrückt (Mac: **Ctrl**). Atrion blendet zu jedem Knopf und Menü den Buchstaben ein. Drücke zusätzlich den Buchstaben, um ihn auszulösen.
 
-## Hinweise und Fehlermeldungen
+    ![Halte auf einer beliebigen Seite Alt gedrückt (Mac: Ctrl)](../../assets/screenshots/tastaturkuerzel/01-ueberlagerung.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_tastaturkuerzel`</small>
+- Häufige Kürzel: **Ctrl + K** (Mac: **Cmd + K**) Befehlspalette, **Alt + C** Neu, **Alt + S** Speichern, **Alt + J** Verwerfen. Auf dem Mac jeweils **Ctrl** statt **Alt**.

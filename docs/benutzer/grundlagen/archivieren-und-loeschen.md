@@ -1,25 +1,22 @@
 # Archivieren, wiederherstellen und löschen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Nicht mehr benötigte Einträge ausblenden oder endgültig entfernen.
 
 ## Wer darf das
 
-Schreiben im Modul, Löschen mit Administrieren
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Klicke neben dem Titel auf **⋮**. Dort stehen **Archivieren** und **Löschen**.
 
-## Video
+    ![Klicke neben dem Titel auf ⋮](../../assets/screenshots/archivieren-und-loeschen/01-aktionen.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Bestätige **Archivieren** im Fenster **Bestätigung**. Der Eintrag verschwindet aus der Liste, bleibt aber erhalten.
 
-## Hinweise und Fehlermeldungen
+    ![Bestätige Archivieren im Fenster Bestätigung](../../assets/screenshots/archivieren-und-loeschen/02-bestaetigen.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_archivieren_und_loeschen`</small>
+- Archivierte Einträge findest du über den Filter **Inaktive …** und holst sie mit **Archivierung aufheben** zurück.
+- **Löschen** entfernt den Eintrag endgültig. Wo möglich, archiviere statt zu löschen.

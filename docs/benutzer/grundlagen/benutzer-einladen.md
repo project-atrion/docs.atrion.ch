@@ -1,27 +1,18 @@
-# Benutzer:in anlegen und einladen
+# Benutzer:in einladen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Eine neue Person per E-Mail zu Atrion einladen.
 
 ## Wer darf das
 
-Systemadministration
+Nur die Administration (Rolle **Administrator** im Benutzerformular).
 
 ## Schritte
 
-Name, E-Mail, Sprache, Speichern, Einladungs-Mail «Zugang einrichten». Danach weiter mit Zugriffsrechten und Mandaten
+1. Öffne **Einstellungen**. Gib unter **Neue Benutzer einladen** die E-Mail-Adresse ein und klicke auf **Einladen**. Die Person erhält eine E-Mail, mit der sie ihr Passwort setzt.
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+    ![Öffne Einstellungen](../../assets/screenshots/benutzer-einladen/01-einladen.png)
 
-## Video
+## Hinweise
 
-*Das Video folgt automatisch aus dem Browsertest.*
-
-## Hinweise und Fehlermeldungen
-
-*Keine Atrion-spezifischen Hinweise.*
-
-<small>Medien aus Test `test_doku_grundlagen_benutzer_einladen`</small>
+- Ausstehende Einladungen erscheinen darunter, bis die Person sich zum ersten Mal anmeldet.
+- Rechte vergibst du danach im Benutzerformular, siehe [Zugriffsrechte setzen](zugriffsrechte-setzen.md).

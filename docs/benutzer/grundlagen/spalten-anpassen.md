@@ -1,19 +1,17 @@
 # Spalten ein- und ausblenden
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Zusätzliche Spalten in einer Liste anzeigen oder ausblenden.
 
 ## Wer darf das
 
-alle
+Alle Personen, die die Liste sehen dürfen. Das Beispiel zeigt die Benutzerliste unter **Einstellungen › Benutzer & Unternehmen › Benutzer**; sie ist nur für die Administration sichtbar. In jeder anderen Liste funktioniert es gleich.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Klicke rechts in der Kopfzeile der Liste auf das Regler-Symbol und hake die gewünschten Spalten an oder ab.
 
-## Hinweise und Fehlermeldungen
+    ![Klicke rechts in der Kopfzeile der Liste auf das Regler-Symbol und hake die gewünschten Spalten an oder ab](../../assets/screenshots/spalten-anpassen/01-spalten-waehlen.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_spalten_anpassen`</small>
+- Die Auswahl merkt sich Atrion in deinem Browser.

@@ -1,25 +1,26 @@
 # Passwort ändern
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Das eigene Passwort ändern, wenn du angemeldet bist.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Öffne über dein Profilbild **Meine Präferenzen**, wechsle zum Reiter **Sicherheit** und klicke auf **Passwort ändern**.
 
-## Video
+    ![Öffne über dein Profilbild Meine Präferenzen, wechsle zum Reiter Sicherheit und klicke auf Passwort ändern](../../assets/screenshots/passwort-aendern/01-reiter-sicherheit.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Bestätige im Fenster **Zugriffskontrolle** mit deinem aktuellen Passwort und klicke auf **Passwort bestätigen**.
 
-## Hinweise und Fehlermeldungen
+    ![Bestätige im Fenster Zugriffskontrolle mit deinem aktuellen Passwort und klicke auf Passwort bestätigen](../../assets/screenshots/passwort-aendern/02-identitaet-bestaetigen.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+3. Gib das neue Passwort zweimal ein und klicke auf **Passwort ändern**.
 
-<small>Medien aus Test `test_doku_grundlagen_passwort_aendern`</small>
+    ![Gib das neue Passwort zweimal ein und klicke auf Passwort ändern](../../assets/screenshots/passwort-aendern/03-neues-passwort.png)
+
+## Hinweise
+
+- Nach dem Ändern bleibst du in diesem Browser angemeldet. Andere Geräte musst du neu anmelden.
+- Die Zugriffskontrolle erscheint nur, wenn du dein Passwort nicht vor kurzem schon bestätigt hast.

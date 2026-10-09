@@ -1,25 +1,22 @@
-# Nachrichten und Notizen im Chatter
+# Nachrichten und Notizen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Zu einem Eintrag Nachrichten schreiben oder interne Notizen festhalten.
 
 ## Wer darf das
 
-alle
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Klicke rechts im Formular auf **Nachricht senden**, schreibe den Text und klicke auf **Senden**. Die Nachricht geht an alle Follower des Eintrags.
 
-## Video
+    ![Klicke rechts im Formular auf Nachricht senden, schreibe den Text und klicke auf Senden](../../assets/screenshots/chatter/01-nachricht.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Für eine interne Notiz klicke auf **Notiz hinterlassen**. Notizen sehen nur interne Personen, es geht keine E-Mail hinaus.
 
-## Hinweise und Fehlermeldungen
+    ![Für eine interne Notiz klicke auf Notiz hinterlassen](../../assets/screenshots/chatter/02-notiz.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_chatter`</small>
+- Mit **@Name** erwähnst du eine Person; sie erhält eine Benachrichtigung.
+- Der Verlauf unter dem Eingabefeld zeigt alle Nachrichten, Notizen und Änderungen.

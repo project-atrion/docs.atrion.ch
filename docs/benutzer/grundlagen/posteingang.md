@@ -1,24 +1,18 @@
 # Posteingang und Erwähnungen
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Neue Nachrichten und Erwähnungen an einem Ort sehen.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Klicke oben rechts auf das Sprechblasen-Symbol. Die Zahl zeigt ungelesene Nachrichten; ein Klick auf einen Eintrag öffnet die Unterhaltung.
 
-## Video
+    ![Klicke oben rechts auf das Sprechblasen-Symbol](../../assets/screenshots/posteingang/01-nachrichtenmenue.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+## Hinweise
 
-## Hinweise und Fehlermeldungen
-
-*Keine Atrion-spezifischen Hinweise.*
-
-<small>Medien aus Test `test_doku_grundlagen_posteingang`</small>
+- Unten im Menü wechselst du zwischen Chats, Kanälen und Meetings.
+- Ob du zusätzlich eine E-Mail erhältst, stellst du unter [Benachrichtigungen](benachrichtigungen.md) ein.

@@ -1,25 +1,22 @@
-# Datensatz anlegen, bearbeiten und speichern
+# Datensatz anlegen und bearbeiten
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Einen neuen Eintrag erfassen oder einen bestehenden ändern.
 
 ## Wer darf das
 
-Schreiben im Modul
+Alle Personen, die den Datensatz bearbeiten dürfen. Das Beispiel zeigt das Formular einer Person unter **Einstellungen › Benutzer & Unternehmen › Benutzer**.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Klicke in der Liste oben links auf **Neu**. Es öffnet sich ein leeres Formular.
 
-## Video
+    ![Klicke in der Liste oben links auf Neu](../../assets/screenshots/datensatz-bearbeiten/01-neu.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Fülle die Felder aus. Atrion speichert automatisch, wenn du das Formular verlässt; mit dem Wolken-Symbol neben dem Titel speicherst du sofort.
 
-## Hinweise und Fehlermeldungen
+    ![Fülle die Felder aus](../../assets/screenshots/datensatz-bearbeiten/02-ausfuellen.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_datensatz_bearbeiten`</small>
+- Fehlt ein Pflichtfeld, markiert Atrion es rot und speichert nicht.
+- Bestehende Einträge öffnest du mit einem Klick in der Liste und bearbeitest sie direkt.

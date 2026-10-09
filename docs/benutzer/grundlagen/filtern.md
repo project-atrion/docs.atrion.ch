@@ -1,25 +1,22 @@
 # Filtern
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Eine Liste auf bestimmte Datensätze einschränken.
 
 ## Wer darf das
 
-alle
+Alle Personen, die die Liste sehen dürfen. Das Beispiel zeigt die Benutzerliste unter **Einstellungen › Benutzer & Unternehmen › Benutzer**; sie ist nur für die Administration sichtbar. In jeder anderen Liste funktioniert es gleich.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Klicke im Suchfeld rechts auf den Pfeil. Unter **Filter** stehen die vorbereiteten Filter.
 
-## Video
+    ![Klicke im Suchfeld rechts auf den Pfeil](../../assets/screenshots/filtern/01-filter-oeffnen.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Klicke auf einen Filter, zum Beispiel **Inaktive Benutzer**. Die Liste zeigt nur noch passende Einträge.
 
-## Hinweise und Fehlermeldungen
+    ![Klicke auf einen Filter, zum Beispiel Inaktive Benutzer](../../assets/screenshots/filtern/02-gefiltert.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_filtern`</small>
+- Mit **Benutzerdefinierter Filter …** baust du eigene Bedingungen.
+- Aktive Filter erscheinen als Kästchen im Suchfeld.

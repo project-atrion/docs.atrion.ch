@@ -1,25 +1,22 @@
 # Mehrere Datensätze auswählen und bearbeiten
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Mehrere Einträge auf einmal markieren und gemeinsam bearbeiten.
 
 ## Wer darf das
 
-Schreiben im Modul
+Alle Personen, die die Liste sehen dürfen. Das Beispiel zeigt die Benutzerliste unter **Einstellungen › Benutzer & Unternehmen › Benutzer**; sie ist nur für die Administration sichtbar. In jeder anderen Liste funktioniert es gleich.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
-4. *Schritt 4, Screenshot folgt.*
+1. Hake links die gewünschten Zeilen an. Oben erscheint die Anzahl ausgewählter Einträge.
 
-## Video
+    ![Hake links die gewünschten Zeilen an](../../assets/screenshots/auswaehlen-und-massenbearbeitung/01-auswahl.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Unter **Aktionen** stehen die Befehle für alle markierten Einträge, zum Beispiel **Exportieren**, **Archivieren** oder **Löschen**.
 
-## Hinweise und Fehlermeldungen
+    ![Unter Aktionen stehen die Befehle für alle markierten Einträge, zum Beispiel Exportieren, Archivieren oder Löschen](../../assets/screenshots/auswaehlen-und-massenbearbeitung/02-aktionen.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_auswaehlen_und_massenbearbeitung`</small>
+- Mit dem Kästchen in der Kopfzeile markierst du alle Einträge der Seite.
+- Wenn du in einer markierten Zeile ein Feld änderst, fragt Atrion, ob die Änderung für alle markierten Einträge gelten soll.

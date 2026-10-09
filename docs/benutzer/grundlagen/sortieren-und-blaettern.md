@@ -1,19 +1,21 @@
 # Sortieren und blättern
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Eine Liste sortieren und durch längere Listen blättern.
 
 ## Wer darf das
 
-alle
+Alle Personen, die die Liste sehen dürfen. Das Beispiel zeigt die Benutzerliste unter **Einstellungen › Benutzer & Unternehmen › Benutzer**; sie ist nur für die Administration sichtbar. In jeder anderen Liste funktioniert es gleich.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
+1. Klicke auf eine Spaltenüberschrift, um nach dieser Spalte zu sortieren. Ein zweiter Klick kehrt die Reihenfolge um.
 
-## Hinweise und Fehlermeldungen
+    ![Klicke auf eine Spaltenüberschrift, um nach dieser Spalte zu sortieren](../../assets/screenshots/sortieren-und-blaettern/01-sortiert.png)
 
-*Keine Atrion-spezifischen Hinweise.*
+2. Oben rechts zeigt der Seitenwechsler, welche Einträge du siehst (zum Beispiel **1-8 / 8**). Mit den Pfeilen blätterst du weiter.
 
-<small>Medien aus Test `test_doku_grundlagen_sortieren_und_blaettern`</small>
+    ![Oben rechts zeigt der Seitenwechsler, welche Einträge du siehst (zum Beispiel 1-8 / 8)](../../assets/screenshots/sortieren-und-blaettern/02-blaettern.png)
+
+## Hinweise
+
+- Ein Klick auf die Zahlen im Seitenwechsler lässt dich den angezeigten Bereich direkt eingeben, zum Beispiel **1-200**.

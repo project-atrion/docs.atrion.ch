@@ -1,24 +1,22 @@
 # Sprache wechseln
 
-!!! info "Vorabdokumentation"
-    Atrion ist im Aufbau. Diese Seite beschreibt den geplanten Stand aus dem Feinkonzept. Screenshots und Video entstehen automatisch aus den Browsertests, sobald die Funktion gebaut ist.
+Die Sprache der Oberfläche für dich persönlich einstellen.
 
 ## Wer darf das
 
-alle
+Alle angemeldeten Personen.
 
 ## Schritte
 
-1. *Schritt 1, Screenshot folgt.*
-2. *Schritt 2, Screenshot folgt.*
-3. *Schritt 3, Screenshot folgt.*
+1. Klicke oben rechts auf dein Profilbild und wähle **Meine Präferenzen**.
 
-## Video
+    ![Klicke oben rechts auf dein Profilbild und wähle Meine Präferenzen](../../assets/screenshots/sprache-wechseln/01-benutzermenue.png)
 
-*Das Video folgt automatisch aus dem Browsertest.*
+2. Wähle unter **Sprache** die gewünschte Sprache und klicke auf **Präferenzen aktualisieren**.
 
-## Hinweise und Fehlermeldungen
+    ![Wähle unter Sprache die gewünschte Sprache und klicke auf Präferenzen aktualisieren](../../assets/screenshots/sprache-wechseln/02-sprache-waehlen.png)
 
-Sprachen de_CH, fr_CH, it_CH, en_CH. Die Doku folgt der gewählten Sprache
+## Hinweise
 
-<small>Medien aus Test `test_doku_grundlagen_sprache_wechseln`</small>
+- Zur Auswahl stehen Deutsch (CH), Französisch (CH), Italienisch und Englisch (UK).
+- Die Seite lädt nach dem Speichern neu und erscheint in der neuen Sprache.
