@@ -36,6 +36,15 @@ Dokumentiert wird nur, was in Atrion schon bedienbar ist. Neue Bereiche kommen m
 
 Die Bilder werden öffentlich. Deshalb nie gegen die produktive Instanz mit echten Personen aufnehmen, sondern gegen eine eigene Datenbank mit fiktiven Demodaten (zum Beispiel `odoo_atrion_docs` auf Port 8070, gleiche Module wie die Instanz).
 
+Demodatenbank einrichten (im Odoo-Checkout, mit einer eigenen `odoo.conf` für Datenbank und Port):
+
+```bash
+odoo-bin -c docs-odoo.conf -d odoo_atrion_docs -i <Module der Instanz> --stop-after-init
+ATRION_PASSWORD=… odoo-bin shell -c docs-odoo.conf -d odoo_atrion_docs --no-http < ../docs.atrion/scripts/seed_docs_db.py
+```
+
+`scripts/seed_docs_db.py` legt die Firma **Project Atrion AG** an, meldet die Aufnahmen als **Max Mustermann** an und zeigt **Jutta Musterfrau** als Beispielperson, dazu einige weitere fiktive Personen mit `@example.ch`-Adressen, einen Kanal und eine Direktnachricht. Das Passwort kommt nur aus `ATRION_PASSWORD`.
+
 ```bash
 pip install playwright pyyaml          # Chromium: playwright install chromium
 export ATRION_URL=http://localhost:8070 ATRION_LOGIN=admin ATRION_PASSWORD=…

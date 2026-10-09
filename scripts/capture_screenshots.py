@@ -124,7 +124,7 @@ class Aufnahme:
         self.page.wait_for_selector(".o_search_bar_menu", timeout=10000)
         self.ruhe(600)
 
-    def formular(self, name="Beat Keller"):
+    def formular(self, name="Jutta Musterfrau"):
         self.liste()
         self.page.click(f".o_data_row:has-text('{name}') td.o_data_cell >> nth=0")
         self.page.wait_for_selector(".o_form_view .o_form_sheet", timeout=20000)
@@ -185,7 +185,7 @@ def passwort_zuruecksetzen(a):
     p.hover("a[href*='reset_password']")
     a.bild("passwort-zuruecksetzen", 1, "link")
     p.click("a[href*='reset_password']"); p.wait_for_selector("input[name=login]"); a.ruhe()
-    p.fill("input[name=login]", "beat.keller@example.ch")
+    p.fill("input[name=login]", "jutta.musterfrau@example.ch")
     a.bild("passwort-zuruecksetzen", 2, "formular")
 
 
@@ -306,7 +306,7 @@ def ansichten_wechseln(a):
 def suchen(a):
     p = a.neu()
     a.liste()
-    p.click(".o_searchview_input"); p.keyboard.type("Keller"); a.ruhe(800)
+    p.click(".o_searchview_input"); p.keyboard.type("Musterfrau"); a.ruhe(800)
     a.bild("suchen", 1, "suchbegriff")
     p.keyboard.press("Enter"); a.ruhe(1200)
     a.bild("suchen", 2, "ergebnis")
@@ -394,7 +394,7 @@ def datensatz_bearbeiten(a):
 def aenderungen_verwerfen(a):
     p = a.neu()
     a.formular()
-    p.fill(".o_field_widget[name=name] input, .o_field_widget[name=name] textarea", "Beat Keller-Muster"); a.ruhe(600)
+    p.fill(".o_field_widget[name=name] input, .o_field_widget[name=name] textarea", "Jutta Musterfrau-Meier"); a.ruhe(600)
     p.hover(".o_form_button_cancel")
     a.bild("aenderungen-verwerfen", 1, "geaendert")
     p.click(".o_form_button_cancel"); a.ruhe(1000)
@@ -448,10 +448,10 @@ def chatter(a):
     p = a.neu()
     a.formular()
     p.click(".o-mail-Chatter-sendMessage"); a.ruhe(800)
-    p.locator(".o-mail-Composer-input").fill("Hallo Beat, bitte die Schlüsselliste bis Freitag ergänzen."); a.ruhe(500)
+    p.locator(".o-mail-Composer-input").fill("Hallo Jutta, bitte die Schlüsselliste bis Freitag ergänzen."); a.ruhe(500)
     a.bild("chatter", 1, "nachricht")
     p.click(".o-mail-Chatter-logNote"); a.ruhe(800)
-    p.locator(".o-mail-Composer-input").fill("Interne Notiz: Beat übernimmt ab Januar die Liegenschaft Seestrasse."); a.ruhe(500)
+    p.locator(".o-mail-Composer-input").fill("Interne Notiz: Jutta übernimmt ab Januar die Liegenschaft Seestrasse."); a.ruhe(500)
     a.bild("chatter", 2, "notiz")
 
 
