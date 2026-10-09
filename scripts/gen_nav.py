@@ -13,7 +13,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 TOML = ROOT / "zensical.toml"
 REIHENFOLGE = {
-    "benutzer": ["grundlagen"],
+    "benutzer": ["anmeldung-und-sicherheit", "persoenliche-einstellungen", "arbeiten-mit-atrion", "zusammenarbeit", "administration"],
     "technik": [],
 }
 OBEN = [("Start", "index.md"), ("Benutzer", "benutzer"), ("Technik", "technik/index.md")]

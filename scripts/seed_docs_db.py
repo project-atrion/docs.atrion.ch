@@ -3,8 +3,9 @@
 # Läuft in der Odoo-Shell gegen eine eigene Datenbank, nie gegen die produktive Instanz:
 #   ATRION_PASSWORD=… odoo-bin shell -c <odoo.conf> -d odoo_atrion_docs --no-http < scripts/seed_docs_db.py
 #
-# Das Passwort für max.mustermann@example.ch (Login wie in ATRION_LOGIN, Standard "admin")
-# kommt nur aus der Umgebung. Das Skript lässt sich mehrfach ausführen.
+# Das Passwort für Max Mustermann (Login wie in ATRION_LOGIN, Standard "admin") und
+# jutta.musterfrau@example.ch kommt nur aus der Umgebung. Das Skript lässt sich mehrfach ausführen
+# und setzt Zwei-Faktor, Passkeys und Geräteliste der Demopersonen zurück.
 import os
 
 from odoo.tools.binary import BinaryBytes
@@ -68,6 +69,18 @@ for i, (name, funktion, ort) in enumerate(LEUTE):
     # gilt als bereits angemeldet, damit keine «ausstehende Einladung» erscheint
     if not env["res.users.log"].search_count([("create_uid", "=", u.id)]):
         env["res.users.log"].with_user(u).sudo().create({})
+
+# Jutta meldet sich für die Seiten zur Zwei-Faktor-Anmeldung selbst an (gleiches Passwort)
+leute["Jutta Musterfrau"].write({"password": E["ATRION_PASSWORD"]})
+
+# Zwei-Faktor und Passkeys zurücksetzen, damit jeder Lauf gleich beginnt
+ids = tuple([admin.id] + [u.id for u in leute.values()])
+env.cr.execute("UPDATE res_users SET totp_secret = NULL WHERE id IN %s", [ids])
+if "auth_totp.device" in env:
+    env["auth_totp.device"].sudo().search([("user_id", "in", list(ids))]).unlink()
+if "auth.passkey.key" in env:
+    env["auth.passkey.key"].sudo().search([("create_uid", "in", list(ids))]).unlink()
+env["res.device.log"].sudo().search([("user_id", "in", list(ids))]).unlink()
 
 # Alte Demonamen aus früheren Läufen entfernen
 alt = Users.with_context(active_test=False).search([("login", "in", ["beat.keller@example.ch", "anna.muster@example.ch"])])

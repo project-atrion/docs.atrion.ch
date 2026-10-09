@@ -14,4 +14,4 @@ Alle angemeldeten Personen.
 
 ## Hinweise
 
-- **In Odoo** heisst: Nachrichten erscheinen nur im Posteingang von Atrion, siehe [Posteingang und Erwähnungen](posteingang.md).
+- **In Odoo** heisst: Nachrichten erscheinen nur im Posteingang von Atrion, siehe [Posteingang und Erwähnungen](../zusammenarbeit/posteingang.md).

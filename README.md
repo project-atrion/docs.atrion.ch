@@ -14,7 +14,7 @@ zensical serve          # http://localhost:8000
 
 | Pfad | Inhalt |
 |---|---|
-| `docs/benutzer/grundlagen/` | Grundfunktionen, die es in Atrion heute gibt (Anmelden, Passwort, Suchen, Exportieren, Dialog …), je eine Seite mit Screenshot pro Schritt |
+| `docs/benutzer/<gruppe>/` | Funktionen, die es in Atrion heute gibt, je eine Seite mit Screenshot pro Schritt. Gruppen: `anmeldung-und-sicherheit`, `persoenliche-einstellungen`, `arbeiten-mit-atrion`, `zusammenarbeit`, `administration` |
 | `docs/technik/` | Technische Dokumentation (folgt mit den ersten Atrion-Modulen) |
 | `docs/assets/screenshots/<slug>/` | Screenshots je Seite, erzeugt von `scripts/capture_screenshots.py` |
 | `docs/register.yaml` | Register: Funktion → Seite, Kontexthilfe-Sichten, Screenshot-Ordner, Vimeo-ID |
@@ -27,7 +27,7 @@ Dokumentiert wird nur, was in Atrion schon bedienbar ist. Neue Bereiche kommen m
 ## Neue Seite anlegen
 
 1. In `scripts/capture_screenshots.py` eine Funktion mit `@seite` ergänzen, die die Schritte ausführt und je Schritt `a.bild(...)` aufruft.
-2. Markdown-Datei unter `docs/benutzer/grundlagen/<slug>.md` anlegen: Titel, ein Satz Zweck, Abschnitte **Wer darf das**, **Schritte** (nummeriert, unter jedem Schritt der Screenshot) und **Hinweise**. Menünamen so schreiben, wie sie auf dem Screenshot stehen.
+2. Markdown-Datei unter `docs/benutzer/<gruppe>/<slug>.md` anlegen: Titel, ein Satz Zweck, Abschnitte **Wer darf das**, **Schritte** (nummeriert, unter jedem Schritt der Screenshot) und **Hinweise**. Menünamen so schreiben, wie sie auf dem Screenshot stehen.
 3. Eintrag in `docs/register.yaml` ergänzen und die Seite auf `index.md` des Bereichs verlinken (bestimmt die Reihenfolge im Menü).
 4. `python scripts/gen_nav.py` ausführen.
 5. `python scripts/check_docs.py && zensical build --strict` muss grün sein.
@@ -63,7 +63,7 @@ pip install imageio-ffmpeg             # falls kein ffmpeg installiert ist
 python scripts/capture_screenshots.py --videos ../docs-videos
 ```
 
-Das Skript nimmt für jede Seite mit mindestens drei Schritten den Ablauf auf (1440 × 900, ruhiges Tempo), wandelt ihn in MP4 (H.264, yuv420p, faststart) um und schreibt `videos.csv` (slug, Titel, Seite, Dauer, Datei) als Upload-Liste.
+Das Skript nimmt für jede Seite mit mindestens drei Schritten den Ablauf auf (1440 × 900, ruhiges Tempo; QR-Codes, Schlüssel und Codes sind ausgeblendet), wandelt ihn in MP4 (H.264, yuv420p, faststart) um und schreibt `videos.csv` (slug, Titel, Seite, Dauer, Datei) als Upload-Liste.
 
 Nach dem Upload die Vimeo-ID in `docs/register.yaml` bei `vimeo:` eintragen und auf der Seite nach den Schritten einfügen:
 

@@ -16,8 +16,12 @@ Alle angemeldeten Personen.
 
     ![Scanne den Barcode mit deiner Authenticator-App, gib den angezeigten Code unter Verifizierungscode ein und klicke auf Zwei-Faktor-Authentifizierung aktivieren](../../assets/screenshots/zwei-faktor-einrichten/02-qr-code.png)
 
+3. Im Reiter **Sicherheit** steht jetzt, dass die Zwei-Faktor-Anmeldung eingeschaltet ist.
+
+    ![Im Reiter Sicherheit steht jetzt, dass die Zwei-Faktor-Anmeldung eingeschaltet ist](../../assets/screenshots/zwei-faktor-einrichten/03-aktiviert.png)
+
 ## Hinweise
 
 - Geeignet sind zum Beispiel Microsoft Authenticator, Google Authenticator oder ein Passwortmanager mit Codes.
 - Klappt das Scannen nicht, zeigt **Scannen klappt nicht?** den Schlüssel zum Abtippen.
-- Ab der nächsten Anmeldung fragt Atrion nach dem Passwort auch nach dem Code.
+- Ab der nächsten Anmeldung fragt Atrion nach dem Passwort auch nach dem Code, siehe [Mit zweitem Faktor anmelden](zwei-faktor-anmelden.md).

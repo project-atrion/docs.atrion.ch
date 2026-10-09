@@ -15,4 +15,4 @@ Alle angemeldeten Personen.
 ## Hinweise
 
 - Unten im Menü wechselst du zwischen Chats, Kanälen und Meetings.
-- Ob du zusätzlich eine E-Mail erhältst, stellst du unter [Benachrichtigungen](benachrichtigungen.md) ein.
+- Ob du zusätzlich eine E-Mail erhältst, stellst du unter [Benachrichtigungen](../persoenliche-einstellungen/benachrichtigungen.md) ein.

@@ -17,13 +17,18 @@ Nimmt für jede Seite mit mindestens drei Schritten den Ablauf als Video auf, wa
 ffmpeg in MP4 (H.264) um und schreibt die Upload-Liste videos.csv. ffmpeg kommt aus FFMPEG,
 dem PATH oder dem Python-Paket imageio-ffmpeg; ohne ffmpeg bleibt WebM.
 """
+import base64
 import csv
+import hashlib
+import hmac
 import os
 import pathlib
 import re
 import shutil
+import struct
 import subprocess
 import sys
+import time
 
 from playwright.sync_api import sync_playwright
 
@@ -33,7 +38,9 @@ URL = os.environ["ATRION_URL"].rstrip("/")
 LOGIN = os.environ["ATRION_LOGIN"]
 PASSWORT = os.environ["ATRION_PASSWORD"]
 BENUTZER = "/odoo/action-base.action_res_users"
-GEHEIM = ["input[type=password]", "[name=secret]", "[name=qrcode]"]
+GEHEIM = ["input[type=password]", "[name=secret]", "[name=qrcode]", "[name=code] input", "input[name=totp_token]"]
+# Zweite Demoperson für Zwei-Faktor (gleiches Passwort, siehe scripts/seed_docs_db.py)
+JUTTA = os.environ.get("ATRION_LOGIN_2", "jutta.musterfrau@example.ch")
 
 
 class Aufnahme:
@@ -50,6 +57,14 @@ class Aufnahme:
                                        storage_state=self.sitzung if anmelden else None, **extra)
         # Kein Hinweis «Push-Benachrichtigungen sind blockiert» auf den Bildern
         ctx.add_init_script("Object.defineProperty(window.Notification || {}, 'permission', {get: () => 'default'})")
+        if video:
+            # Im Video gibt es keine Maske wie beim Screenshot: QR-Code, Schlüssel und Codes ausblenden
+            ctx.add_init_script("""document.addEventListener('DOMContentLoaded', () => {
+                const s = document.createElement('style');
+                s.textContent = '[name=qrcode] img, [name=secret] { visibility: hidden !important; } '
+                    + '[name=code] input, input[name=totp_token] { color: transparent !important; text-shadow: 0 0 0 #0b1f3a; filter: blur(6px); }';
+                document.head.appendChild(s);
+            });""")
         return ctx
 
     def neu(self, anmelden=True):
@@ -73,14 +88,22 @@ class Aufnahme:
                 self.sitzung = ctx.storage_state()
         return self.page
 
-    def anmelden(self):
+    def anmelden(self, login=LOGIN, warte=".o_main_navbar"):
         p = self.page
         p.goto(URL + "/web/login")
-        p.fill("input[name=login]", LOGIN)
+        p.fill("input[name=login]", login)
         p.fill("input[name=password]", PASSWORT)
         p.click("button[type=submit]")
-        p.wait_for_selector(".o_main_navbar", timeout=60000)
+        p.wait_for_selector(warte, timeout=60000)
         self.ruhe()
+
+    def passkey_geraet(self):
+        """Virtueller WebAuthn-Authenticator (wie Touch ID) für die Passkey-Seiten."""
+        cdp = self.page.context.new_cdp_session(self.page)
+        cdp.send("WebAuthn.enable")
+        cdp.send("WebAuthn.addVirtualAuthenticator", {"options": {
+            "protocol": "ctap2", "transport": "internal", "hasResidentKey": True,
+            "hasUserVerification": True, "isUserVerified": True}})
 
     def ruhe(self, ms=900):
         self.page.wait_for_timeout(ms)
@@ -148,13 +171,31 @@ class Aufnahme:
         self.ruhe(1500)
 
 
-# Seiten: slug -> Funktion(a), die die Schritte aufnimmt
+# Seiten: slug -> Funktion(a), die die Schritte aufnimmt. Eine Funktion kann mehrere Seiten
+# in einem Ablauf aufnehmen, zum Beispiel Passkey einrichten, damit anmelden und entfernen.
 SEITEN = {}
 
 
-def seite(fn):
-    SEITEN[fn.__name__.replace("_", "-")] = fn
-    return fn
+def seite(fn=None, *, slugs=()):
+    def reg(f):
+        for slug in slugs or [f.__name__.replace("_", "-")]:
+            SEITEN[slug] = f
+        return f
+    return reg(fn) if fn else reg
+
+
+def totp(geheimnis, versatz=0):
+    """Aktueller Code der Authenticator-App (RFC 6238) für den angezeigten Schlüssel."""
+    g = geheimnis.replace(" ", "").upper()
+    k = base64.b32decode(g + "=" * (-len(g) % 8))
+    h = hmac.new(k, struct.pack(">Q", int(time.time()) // 30 + versatz), hashlib.sha1).digest()
+    o = h[-1] & 15
+    return f"{(struct.unpack('>I', h[o:o + 4])[0] & 0x7FFFFFFF) % 1000000:06d}"
+
+
+def neues_codefenster():
+    """Bis zum nächsten 30-Sekunden-Fenster warten, damit ein Code nicht doppelt verwendet wird."""
+    time.sleep(31 - time.time() % 30)
 
 
 @seite
@@ -201,15 +242,74 @@ def passwort_aendern(a):
     a.bild("passwort-aendern", 3, "neues-passwort")
 
 
-@seite
-def zwei_faktor_einrichten(a):
-    p = a.neu()
+@seite(slugs=("zwei-faktor-einrichten", "zwei-faktor-anmelden"))
+def zwei_faktor(a):
+    # Als Jutta, damit die Anmeldung von Max für die übrigen Seiten ohne Code bleibt
+    p = a.neu(anmelden=False)
+    a.anmelden(JUTTA)
     a.praeferenzen("Sicherheit")
     a.bild("zwei-faktor-einrichten", 1, "reiter-sicherheit")
     p.click(".modal-content [name=action_totp_enable_wizard]"); a.ruhe(1500)
     a.identitaet()
     a.ruhe(800)
     a.bild("zwei-faktor-einrichten", 2, "qr-code", maske=[".modal-content img"])
+    p.click("text=Scannen klappt nicht?"); a.ruhe(600)
+    geheimnis = p.locator(".modal-content [name=secret]").last.inner_text()
+    p.locator(".modal-content [name=code] input").fill(totp(geheimnis)); a.ruhe(500)
+    p.click(".modal-content [name=enable]"); a.ruhe(2500)
+    a.praeferenzen("Sicherheit")
+    a.bild("zwei-faktor-einrichten", 3, "aktiviert")
+    p.keyboard.press("Escape"); a.ruhe(500)
+    a.benutzermenue()
+    p.click(".o-dropdown--menu >> text=Abmelden"); p.wait_for_selector("input[name=login]", timeout=30000); a.ruhe()
+    p.fill("input[name=login]", JUTTA); p.fill("input[name=password]", PASSWORT)
+    a.bild("zwei-faktor-anmelden", 1, "passwort")
+    p.click("button[type=submit]"); p.wait_for_selector("input[name=totp_token]", timeout=30000); a.ruhe()
+    neues_codefenster()
+    p.fill("input[name=totp_token]", totp(geheimnis)); a.ruhe(500)
+    a.bild("zwei-faktor-anmelden", 2, "code")
+    p.click("button[type=submit]"); p.wait_for_selector(".o_main_navbar", timeout=30000); a.ruhe(1500)
+    a.bild("zwei-faktor-anmelden", 3, "angemeldet")
+    # Aufräumen: Zwei-Faktor für Jutta wieder ausschalten
+    a.praeferenzen("Sicherheit")
+    p.click(".modal-content [name=action_totp_disable]"); a.ruhe(1500)
+    a.identitaet()
+
+
+@seite(slugs=("passkey-einrichten", "passkey-anmelden", "passkey-entfernen"))
+def passkeys(a):
+    p = a.neu()
+    a.passkey_geraet()
+    a.praeferenzen("Sicherheit")
+    p.hover(".modal-content button:has-text('Passkey hinzufügen')")
+    a.bild("passkey-einrichten", 1, "reiter-sicherheit")
+    p.click(".modal-content button:has-text('Passkey hinzufügen')"); a.ruhe(1500)
+    a.identitaet()
+    p.locator(".modal-content input[type=text]").last.fill("MacBook von Max"); a.ruhe(400)
+    a.bild("passkey-einrichten", 2, "name")
+    p.click(".modal-footer button:has-text('Erstellen')"); a.ruhe(3000)
+    a.praeferenzen("Sicherheit")
+    a.bild("passkey-einrichten", 3, "eingerichtet")
+    p.keyboard.press("Escape"); a.ruhe(500)
+    a.benutzermenue()
+    p.click(".o-dropdown--menu >> text=Abmelden"); p.wait_for_selector("input[name=login]", timeout=30000); a.ruhe()
+    a.sitzung = None  # alte Sitzung ist abgemeldet
+    p.hover("text=Passkey verwenden")
+    a.bild("passkey-anmelden", 1, "anmeldeseite")
+    p.click("text=Passkey verwenden"); p.wait_for_selector(".o_main_navbar", timeout=30000); a.ruhe(1500)
+    a.bild("passkey-anmelden", 2, "angemeldet")
+    a.sitzung = p.context.storage_state()
+    a.praeferenzen("Sicherheit")
+    karte = p.locator(".modal-content .o_kanban_record:has-text('MacBook von Max')")
+    karte.hover(); a.ruhe(400)
+    karte.locator(".dropdown-toggle").click(force=True); a.ruhe(700)
+    a.bild("passkey-entfernen", 1, "menue")
+    p.locator(".o-dropdown--menu .dropdown-item").filter(has_text=re.compile("Löschen|Entfernen")).first.click(); a.ruhe(1200)
+    a.bild("passkey-entfernen", 2, "bestaetigen")
+    p.locator(".modal-footer button.btn-primary").last.click(); a.ruhe(2500)  # bestätigt mit dem Passkey
+    if not p.locator(".modal-content [name=auth_passkey_key_ids]").count():
+        a.praeferenzen("Sicherheit")
+    a.bild("passkey-entfernen", 3, "entfernt")
 
 
 @seite
@@ -538,15 +638,22 @@ def ffmpeg():
         return None
 
 
+def benutzerseite(slug):
+    return next((ROOT / "docs" / "benutzer").glob(f"*/{slug}.md"))
+
+
 def titel(slug):
-    kopf = (ROOT / "docs" / "benutzer" / "grundlagen" / f"{slug}.md").read_text(encoding="utf-8").splitlines()[0]
-    return kopf.lstrip("# ").strip()
+    return benutzerseite(slug).read_text(encoding="utf-8").splitlines()[0].lstrip("# ").strip()
 
 
 def videos(ziel, gewuenscht):
     """Ein Video je Seite mit mindestens drei Schritten, als MP4 plus Upload-Liste videos.csv."""
     ziel.mkdir(parents=True, exist_ok=True)
-    slugs = [s for s in gewuenscht if len(list((ZIEL / s).glob("*.png"))) >= 3]
+    slugs, erledigt = [], set()
+    for s in gewuenscht:  # ein Video je Ablauf, benannt nach der ersten Seite mit mindestens drei Schritten
+        if SEITEN[s] not in erledigt and len(list((ZIEL / s).glob("*.png"))) >= 3:
+            slugs.append(s)
+            erledigt.add(SEITEN[s])
     ff, fehler, zeilen = ffmpeg(), [], []
     with sync_playwright() as pw:
         a = Aufnahme(pw.chromium.launch(slow_mo=250), video_dir=ziel / "roh")
@@ -571,7 +678,7 @@ def videos(ziel, gewuenscht):
                 webm.unlink()
             info = subprocess.run([ff, "-i", str(datei)], capture_output=True, text=True).stderr if ff else ""
             dauer = re.search(r"Duration: (\d+:\d+:\d+)", info)
-            zeilen.append([slug, titel(slug), f"https://docs.atrion.ch/benutzer/grundlagen/{slug}/",
+            zeilen.append([slug, titel(slug), "https://docs.atrion.ch/" + benutzerseite(slug).relative_to(ROOT / "docs").with_suffix("").as_posix() + "/",
                            dauer.group(1) if dauer else "", datei.name])
         a.browser.close()
     shutil.rmtree(ziel / "roh", ignore_errors=True)
@@ -595,10 +702,13 @@ def main():
 
 
 def screenshots(gewuenscht):
-    fehler = []
+    fehler, erledigt = [], set()
     with sync_playwright() as pw:
         a = Aufnahme(pw.chromium.launch())
         for slug in gewuenscht:
+            if SEITEN[slug] in erledigt:
+                continue
+            erledigt.add(SEITEN[slug])
             print(slug)
             try:
                 SEITEN[slug](a)
