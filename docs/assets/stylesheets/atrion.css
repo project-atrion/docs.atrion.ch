@@ -1,0 +1,53 @@
+/* Atrion-Branding nach Figma-Styleguide: Navy #0b1f3a, Orange #ff7a1a, Sky #bfe3ff, Schrift Outfit */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0b1f3a;
+  --md-primary-fg-color--light: #1c3559;
+  --md-primary-fg-color--dark: #06142a;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #ff7a1a;
+  --md-accent-fg-color--transparent: rgba(255, 122, 26, 0.1);
+  --md-typeset-a-color: #c4560a;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0b1f3a;
+  --md-primary-fg-color--light: #1c3559;
+  --md-primary-fg-color--dark: #06142a;
+  --md-accent-fg-color: #ff7a1a;
+  --md-typeset-a-color: #ff9a4d;
+  --md-default-bg-color: #0a1526;
+}
+
+.md-header, .md-tabs { background-color: #0b1f3a; }
+.md-tabs__link--active, .md-tabs__link:hover { color: #ff7a1a; }
+
+.md-typeset h1 { font-weight: 600; color: var(--md-default-fg-color); }
+.md-typeset h2 { font-weight: 600; }
+
+.md-typeset .admonition.info,
+.md-typeset details.info { border-color: #ff7a1a; }
+.md-typeset .info > .admonition-title,
+.md-typeset .info > summary { background-color: rgba(255, 122, 26, 0.1); }
+.md-typeset .info > .admonition-title::before,
+.md-typeset .info > summary::before { background-color: #ff7a1a; }
+
+.atrion-karten { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.atrion-karten a { display: block; padding: 1rem 1.2rem; border-radius: 12px; background: #eaf5ff; color: #0b1f3a; text-decoration: none; }
+.atrion-karten a:hover { background: #bfe3ff; }
+.atrion-karten strong { display: block; font-size: 1.05rem; margin-bottom: 0.3rem; }
+[data-md-color-scheme="slate"] .atrion-karten a { background: #13294a; color: #eaf5ff; }
+[data-md-color-scheme="slate"] .atrion-karten a:hover { background: #1c3559; }
+
+.md-header, .md-header__title, .md-header__topic, .md-tabs__link, .md-source { color: #ffffff; }
+.atrion-karten > p { display: contents; }
+.md-typeset .admonition.info, .md-typeset details.info { background-color: #eaf5ff; }
+[data-md-color-scheme="slate"] .md-typeset .admonition.info { background-color: #13294a; }
+.md-tabs__item--active .md-tabs__link { color: #ff7a1a; }
+.md-header .md-search__button, .md-header .md-search__input::placeholder, .md-header .md-search__icon { color: #ffffff; }
+
+/* Outfit lokal, Code in der Systemschrift */
+:root { --md-text-font: "Outfit"; --md-code-font: "SFMono-Regular"; --md-text-font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif; --md-code-font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+body, input { font-family: var(--md-text-font-family); }
+code, kbd, pre { font-family: var(--md-code-font-family); }
+.md-header__button.md-logo img, .md-header__button.md-logo svg { height: 1.5rem; width: auto; }

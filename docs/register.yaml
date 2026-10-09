@@ -1,0 +1,840 @@
+# Doku-Register: jede Funktion, jede Grundfunktion und jede Technikseite.
+# Die CI prüft, dass jede Seite existiert und jede Seite im Register steht.
+- funktion: audit_trail.F01
+  seite: benutzer/audit/f01-requests-ansehen
+  sichten:
+  - audit_trail.action_audit_request
+  - audit_trail.audit_request_view_list
+  - audit_trail.audit_request_view_form
+  - audit_trail.audit_request_view_search
+  tests:
+  - test_doku_audit_requests_ansehen
+- funktion: audit_trail.F02
+  seite: technik/betrieb/audit-schreibweg-spool
+  sichten: []
+  tests: []
+- funktion: audit_trail.F03
+  seite: benutzer/audit/f03-maskierung
+  sichten:
+  - audit_trail.action_audit_einstellungen
+  - audit_trail.action_audit_maskierung_pruefung
+  tests:
+  - test_doku_audit_maskierung
+- funktion: audit_trail.F04
+  seite: benutzer/audit/f04-cron-laeufe-nachvollziehen
+  sichten:
+  - audit_trail.action_audit_request
+  - audit_trail.audit_request_view_form
+  tests:
+  - test_doku_audit_cron_lauf
+- funktion: audit_trail.F05
+  seite: benutzer/audit/f05-aenderungen-alt-neu
+  sichten:
+  - audit_trail.action_audit_change
+  tests:
+  - test_tour_audit_datensatz
+- funktion: audit_trail.F06
+  seite: benutzer/audit/f06-ereignisse
+  sichten:
+  - audit_trail.action_audit_event
+  tests:
+  - test_doku_audit_ereignisse
+- funktion: audit_trail.F07
+  seite: benutzer/audit/f07-lesezugriffe
+  sichten:
+  - audit_trail.action_audit_read
+  tests:
+  - test_doku_audit_lesezugriffe
+- funktion: audit_trail.F08
+  seite: technik/erweiterung/audit-zusatz-setzen
+  sichten: []
+  tests: []
+- funktion: audit_trail.F09
+  seite: benutzer/audit/f09-audit-am-datensatz
+  sichten:
+  - audit_trail.action_audit_datensatz
+  tests:
+  - test_tour_audit_datensatz
+- funktion: audit_trail.F10
+  seite: benutzer/audit/f10-eintrag-pruefen
+  sichten:
+  - audit_trail.audit_request_view_form
+  - audit_trail.action_audit_pruefung
+  tests:
+  - test_doku_audit_eintrag_pruefen
+- funktion: audit_trail.F11
+  seite: benutzer/audit/f11-partitionen-und-groesse
+  sichten:
+  - audit_trail.action_audit_partition
+  tests:
+  - test_doku_audit_partitionen
+- funktion: audit_trail.F12
+  seite: technik/betrieb/audit-archivierung
+  sichten:
+  - audit_trail.action_audit_partition
+  tests: []
+- funktion: audit_trail.F13
+  seite: benutzer/audit/f13-tagesanker
+  sichten:
+  - audit_trail.action_audit_anker
+  tests:
+  - test_doku_audit_tagesanker
+- funktion: audit_trail.F14
+  seite: benutzer/audit/f14-integritaet-pruefen
+  sichten:
+  - audit_trail.action_audit_pruefung_assistent
+  - audit_trail.action_audit_pruefung
+  tests:
+  - test_tour_integritaet_pruefen
+- funktion: audit_trail.F15
+  seite: benutzer/audit/f15-dashboard
+  sichten:
+  - audit_trail.action_audit_dashboard
+  tests:
+  - test_tour_dashboard_getrennt
+- funktion: audit_trail.F16
+  seite: benutzer/audit/f16-berichte-und-export
+  sichten:
+  - audit_trail.action_audit_auszug_person
+  - audit_trail.action_audit_ankerliste
+  - audit_trail.action_audit_export_jsonl
+  tests:
+  - test_tour_integritaet_pruefen
+  - test_doku_audit_auszug_person
+- funktion: audit_trail.F17
+  seite: benutzer/audit/f17-einstellungen
+  sichten:
+  - audit_trail.action_audit_einstellungen
+  tests:
+  - test_doku_audit_einstellungen
+- funktion: audit_trail.F18
+  seite: benutzer/audit/f18-unveraenderlichkeit
+  sichten:
+  - audit_trail.action_audit_change
+  - audit_trail.action_audit_event
+  tests:
+  - test_doku_audit_unveraenderlich
+- seite: technik/datenmodell/audit-trail
+- seite: technik/datenmodell/audit-partitionen
+- seite: technik/audit/umfang
+- seite: technik/audit/kanaele
+- seite: technik/audit/ereignistypen
+- seite: technik/audit/maskierung
+- seite: technik/audit/hash-kette
+- seite: technik/erweiterung/audit-zusatz-setzen
+- seite: technik/erweiterung/audit-event-melden
+- seite: technik/erweiterung/audit-gefilterte-sichten
+- seite: technik/betrieb/audit-schreibweg-spool
+- seite: technik/betrieb/audit-archivierung
+- seite: technik/betrieb/audit-unveraenderlichkeit
+- seite: technik/betrieb/audit-einstellungen
+- seite: technik/betrieb/audit-cron
+- seite: technik/betrieb/audit-installation
+- seite: technik/betrieb/audit-proxy-client-ip
+- funktion: atrion_basis.F01
+  seite: benutzer/basis/f01-mandate-verwalten
+  sichten:
+  - atrion_basis.action_atrion_mandat
+  - atrion_basis.atrion_mandat_view_form
+  tests:
+  - test_doku_basis_mandate_verwalten
+- funktion: atrion_basis.F02
+  seite: benutzer/basis/f02-mandat-aktivieren-kuendigen
+  sichten:
+  - atrion_basis.action_atrion_mandat
+  - atrion_basis.action_atrion_mandat_kuendigung
+  - atrion_basis.action_atrion_mandat_reaktivierung
+  tests:
+  - tour_basis_mandat_eroeffnen
+  - test_doku_basis_mandat_kuendigen
+- funktion: atrion_basis.F03
+  seite: benutzer/basis/f03-mandat-eroeffnen
+  sichten:
+  - atrion_basis.action_atrion_mandat_eroeffnung
+  tests:
+  - tour_basis_mandat_eroeffnen
+- funktion: atrion_basis.F04
+  seite: benutzer/basis/f04-company-eines-mandats
+  sichten:
+  - atrion_basis.res_company_view_form_atrion
+  tests:
+  - test_doku_basis_company_mandat
+- funktion: atrion_basis.F05
+  seite: benutzer/basis/f05-verwaltungseinheiten
+  sichten:
+  - atrion_basis.action_atrion_verwaltungseinheit
+  tests:
+  - test_doku_basis_verwaltungseinheit
+- funktion: atrion_basis.F06
+  seite: benutzer/basis/f06-zustaendigkeiten
+  sichten:
+  - atrion_basis.action_atrion_zustaendigkeit
+  tests:
+  - test_doku_basis_zustaendigkeit
+- funktion: atrion_basis.F07
+  seite: benutzer/basis/f07-nachfolge-zuweisen
+  sichten:
+  - atrion_basis.action_atrion_zustaendigkeit
+  - atrion_basis.action_atrion_zustaendigkeit_nachfolge
+  tests:
+  - tour_basis_zustaendigkeit_nachfolge
+- funktion: atrion_basis.F08
+  seite: benutzer/basis/f08-erlaubte-mandate
+  sichten:
+  - base.action_res_users
+  tests:
+  - test_doku_basis_erlaubte_mandate
+- funktion: atrion_basis.F09
+  seite: benutzer/basis/f09-rechte-stufen
+  sichten:
+  - base.action_res_users
+  tests:
+  - test_doku_basis_rechte_stufen
+- funktion: atrion_basis.F10
+  seite: benutzer/basis/f10-mandatswahl
+  sichten:
+  - atrion_basis.MandatswahlSystray
+  tests:
+  - tour_basis_mandatswahl
+- funktion: atrion_basis.F11
+  seite: benutzer/basis/f11-gueltig-am-stichtag
+  sichten:
+  - atrion_basis.action_atrion_zustaendigkeit
+  tests:
+  - tour_basis_zustaendigkeit_nachfolge
+- funktion: atrion_basis.F12
+  seite: benutzer/basis/f12-nummernkreis-vorlagen
+  sichten:
+  - atrion_basis.action_atrion_nummernkreis_vorlage
+  tests:
+  - test_doku_basis_nummernkreise
+- funktion: atrion_basis.F13
+  seite: benutzer/basis/f13-sprachen
+  sichten:
+  - base.res_lang_act_window
+  tests:
+  - test_doku_basis_sprachen
+- funktion: atrion_basis.F14
+  seite: benutzer/basis/f14-einstellungen-basis
+  sichten:
+  - atrion_einstellungen.action_einstellungen_global
+  - 'bereich: ''basis'''
+  tests:
+  - test_doku_basis_einstellungen
+- funktion: atrion_basis.F15
+  seite: technik/erweiterung/basis-rechte-test
+  sichten: []
+  tests: []
+- seite: technik/datenmodell/basis
+- seite: technik/erweiterung/basis-eroeffnungsschritte
+- seite: technik/erweiterung/basis-bezugsfelder
+- seite: technik/erweiterung/basis-zeitscheibe-mixin
+- seite: technik/erweiterung/basis-nummernkreise
+- seite: technik/erweiterung/basis-daten-scopes
+- seite: technik/erweiterung/basis-rechte-test
+- seite: technik/erweiterung/basis-einstellung-lesen
+- seite: technik/betrieb/basis-einstellungen
+- seite: technik/betrieb/basis-erlaubte-mandate
+- seite: technik/betrieb/basis-cron
+- seite: technik/betrieb/basis-installation
+- seite: technik/audit/basis-ereignisse
+- funktion: atrion_einstellungen.F01
+  seite: benutzer/einstellungen/f01-definitionen-einsehen
+  sichten:
+  - atrion_einstellungen.action_einstellung_definition
+  tests:
+  - test_doku_einstellungen_definitionen
+- funktion: atrion_einstellungen.F02
+  seite: technik/erweiterung/einstellungen-lese-api
+  sichten: []
+  tests: []
+- funktion: atrion_einstellungen.F03
+  seite: benutzer/einstellungen/f03-einstellungen-global
+  sichten:
+  - atrion_einstellungen.action_einstellungen_global
+  tests:
+  - test_tour_einstellungen
+- funktion: atrion_einstellungen.F04
+  seite: benutzer/einstellungen/f04-mandatswerte-uebersteuern
+  sichten:
+  - atrion_einstellungen.action_einstellungen_mandat
+  - atrion_einstellungen.action_einstellung_uebersteuerungen
+  tests:
+  - test_tour_einstellungen
+- funktion: atrion_einstellungen.F05
+  seite: benutzer/einstellungen/f05-verlauf
+  sichten:
+  - atrion_einstellungen.action_einstellungen_global
+  tests:
+  - test_tour_einstellungen
+- funktion: atrion_einstellungen.F06
+  seite: benutzer/einstellungen/f06-spiegel-abweichung-beheben
+  sichten:
+  - atrion_einstellungen.action_einstellung_werte
+  tests:
+  - test_doku_einstellungen_spiegel
+- funktion: atrion_einstellungen.F07
+  seite: benutzer/einstellungen/f07-mandatsvorlagen
+  sichten:
+  - atrion_einstellungen.action_einstellung_vorlage
+  tests:
+  - test_doku_einstellungen_vorlage
+- funktion: atrion_einstellungen.F08
+  seite: benutzer/einstellungen/f08-vorlage-anwenden
+  sichten:
+  - atrion_einstellungen.action_vorlage_anwenden
+  tests:
+  - test_doku_einstellungen_vorlage_anwenden
+- funktion: atrion_einstellungen.F09
+  seite: benutzer/einstellungen/f09-eroeffnung-einstellungen
+  sichten:
+  - atrion_basis.action_atrion_mandat_eroeffnung
+  tests:
+  - tour_basis_mandat_eroeffnen
+- funktion: atrion_einstellungen.F10
+  seite: benutzer/einstellungen/f10-rechteuebersicht
+  sichten:
+  - atrion_einstellungen.action_rechte_uebersicht
+  tests:
+  - test_tour_rechteuebersicht
+- seite: technik/datenmodell/einstellungen
+- seite: technik/erweiterung/einstellungen-definitionen
+- seite: technik/erweiterung/einstellungen-lese-api
+- seite: technik/erweiterung/einstellungen-spiegelung
+- seite: technik/erweiterung/einstellungen-vorlagen-und-eroeffnung
+- seite: technik/erweiterung/rechte-odoo-standard
+- seite: technik/betrieb/einstellungen-schluessel
+- seite: technik/betrieb/einstellungen-cron
+- seite: technik/audit/einstellungen-ereignisse
+- funktion: atrion_api.F01
+  seite: benutzer/api/f01-api-client-einrichten
+  sichten:
+  - atrion_api.action_api_client
+  tests:
+  - tour_api_client_einrichten
+- funktion: atrion_api.F02
+  seite: benutzer/api/f02-schluessel-erzeugen-rotieren
+  sichten:
+  - atrion_api.action_schluessel_assistent
+  - atrion_api.action_api_client
+  tests:
+  - tour_api_client_einrichten
+  - test_doku_api_schluessel_rotieren
+- funktion: atrion_api.F03
+  seite: technik/api/authentifizierung
+  sichten: []
+  tests: []
+- funktion: atrion_api.F04
+  seite: technik/erweiterung/api-operationen-registrieren
+  sichten: []
+  tests: []
+- funktion: atrion_api.F05
+  seite: technik/api/referenz
+  sichten: []
+  tests: []
+- funktion: atrion_api.F06
+  seite: technik/api/paginierung
+  sichten: []
+  tests: []
+- funktion: atrion_api.F07
+  seite: technik/api/mandatskontext
+  sichten: []
+  tests: []
+- funktion: atrion_api.F08
+  seite: technik/api/fehlercodes
+  sichten: []
+  tests: []
+- funktion: atrion_api.F09
+  seite: technik/api/idempotenz
+  sichten: []
+  tests: []
+- funktion: atrion_api.F10
+  seite: benutzer/api/f10-sperren-aufheben
+  sichten:
+  - atrion_api.action_api_sperre
+  tests:
+  - test_doku_api_sperre_aufheben
+- funktion: atrion_api.F11
+  seite: technik/api/cors
+  sichten: []
+  tests: []
+- funktion: atrion_api.F12
+  seite: technik/api/versionierung
+  sichten: []
+  tests: []
+- funktion: atrion_api.F13
+  seite: technik/api/json2
+  sichten: []
+  tests: []
+- funktion: atrion_api.F14
+  seite: technik/api/ressource-mandate
+  sichten: []
+  tests: []
+- funktion: atrion_api.F15
+  seite: benutzer/api/f15-ereignistypen
+  sichten:
+  - atrion_api.action_api_ereignistyp
+  tests:
+  - test_doku_api_ereignistypen
+- funktion: atrion_api.F16
+  seite: benutzer/api/f16-webhook-einrichten
+  sichten:
+  - atrion_api.action_api_webhook
+  - atrion_api.action_api_zustellung
+  tests:
+  - test_doku_api_webhook_einrichten
+- funktion: atrion_api.F17
+  seite: benutzer/api/f17-api-protokoll
+  sichten:
+  - atrion_api.action_api_protokoll
+  - atrion_api.audit_request_view_list_api
+  - atrion_api.audit_request_view_form_api
+  - atrion_api.action_api_client_protokoll
+  tests:
+  - tour_api_protokoll_filter
+  - tour_api_client_einrichten
+- funktion: atrion_api.F18
+  seite: benutzer/api/f18-dashboard
+  sichten:
+  - atrion_api.action_api_dashboard
+  tests:
+  - tour_api_client_einrichten
+- funktion: atrion_api.F19
+  seite: benutzer/api/f19-einstellungen-api
+  sichten:
+  - atrion_api.action_api_einstellungen
+  tests:
+  - test_doku_api_einstellungen
+- funktion: atrion_api.F20
+  seite: benutzer/api/f20-berichte
+  sichten:
+  - atrion_api.report_api_clients
+  - atrion_api.report_api_katalog
+  - atrion_api.action_api_operation
+  tests:
+  - test_doku_api_berichte
+- seite: technik/api/referenz
+- seite: technik/api/ressource-system
+- seite: technik/api/ressource-mandate
+- seite: technik/api/ressource-verwaltungseinheiten
+- seite: technik/api/ressource-zustaendigkeiten
+- seite: technik/api/ressource-benutzer
+- seite: technik/api/ressource-audit-requests
+- seite: technik/api/ressource-ereignisse
+- seite: technik/api/ereignistypen
+- seite: technik/api/authentifizierung
+- seite: technik/api/clients-und-schluessel
+- seite: technik/api/idempotenz
+- seite: technik/api/paginierung
+- seite: technik/api/fehlercodes
+- seite: technik/api/rate-limit
+- seite: technik/api/webhooks
+- seite: technik/api/versionierung
+- seite: technik/api/mandatskontext
+- seite: technik/api/cors
+- seite: technik/api/json2
+- seite: technik/erweiterung/api-operationen-registrieren
+- seite: technik/erweiterung/api-tests
+- seite: technik/datenmodell/api
+- seite: technik/betrieb/api-einstellungen
+- seite: technik/betrieb/api-cron
+- seite: technik/audit/api-protokollfelder
+- funktion: atrion_mcp.F01
+  seite: benutzer/mcp/f01-werkzeuge-ansehen
+  sichten:
+  - atrion_mcp.action_mcp_werkzeug
+  tests:
+  - test_doku_mcp_werkzeuge_ansehen
+- funktion: atrion_mcp.F02
+  seite: benutzer/mcp/f02-werkzeug-freischalten-sperren
+  sichten:
+  - atrion_mcp.action_mcp_werkzeug
+  tests:
+  - tour_atrion_mcp_werkzeug_freischalten
+- funktion: atrion_mcp.F03
+  seite: technik/mcp/initialisierung
+  sichten: []
+  tests: []
+- funktion: atrion_mcp.F04
+  seite: technik/mcp/werkzeugausfuehrung
+  sichten: []
+  tests: []
+- funktion: atrion_mcp.F05
+  seite: technik/mcp/mandatskontext
+  sichten: []
+  tests: []
+- funktion: atrion_mcp.F06
+  seite: technik/mcp/limits
+  sichten: []
+  tests: []
+- funktion: atrion_mcp.F07
+  seite: benutzer/mcp/f07-bestaetigungen-verfolgen
+  sichten:
+  - atrion_mcp.action_mcp_bestaetigung_meine
+  tests:
+  - test_doku_mcp_bestaetigungen
+- funktion: atrion_mcp.F08
+  seite: benutzer/mcp/f08-bestaetigung-annehmen
+  sichten:
+  - atrion_mcp.action_mcp_bestaetigung_meine
+  - atrion_mcp.action_mcp_bestaetigung_alle
+  tests:
+  - tour_atrion_mcp_bestaetigung_annehmen
+- funktion: atrion_mcp.F09
+  seite: benutzer/mcp/f09-mcp-protokoll
+  sichten:
+  - atrion_mcp.action_mcp_protokoll
+  - atrion_mcp.action_mcp_protokoll_meine
+  - atrion_mcp.action_mcp_werkzeug_protokoll
+  tests:
+  - tour_atrion_mcp_protokoll_filter
+  - tour_atrion_mcp_meine_aufrufe
+- funktion: atrion_mcp.F10
+  seite: benutzer/mcp/f10-dashboard
+  sichten:
+  - atrion_mcp.action_mcp_dashboard
+  tests:
+  - tour_atrion_mcp_dashboard
+- funktion: atrion_mcp.F11
+  seite: benutzer/mcp/f11-einstellungen-mcp
+  sichten:
+  - atrion_einstellungen.action_einstellungen_global
+  - 'bereich: ''mcp'''
+  tests:
+  - test_doku_mcp_einstellungen
+- funktion: atrion_mcp.F12
+  seite: benutzer/mcp/f12-eroeffnung-mcp-freigabe
+  sichten:
+  - atrion_basis.action_atrion_mandat_eroeffnung
+  tests:
+  - test_doku_mcp_eroeffnung_freigabe
+- funktion: atrion_mcp.F13
+  seite: benutzer/mcp/f13-oauth-zustimmung
+  sichten:
+  - ai_mcp
+  - ai_mcp
+  tests:
+  - tour_atrion_mcp_oauth_hinweis
+- funktion: atrion_mcp.F14
+  seite: benutzer/mcp/f14-claude-code-einrichten
+  sichten:
+  - atrion_mcp.action_mcp_einrichtung
+  tests:
+  - test_doku_mcp_einrichtung
+- funktion: atrion_mcp.F15
+  seite: benutzer/mcp/f15-mcp-stufe-und-sperre
+  sichten:
+  - base.action_res_users
+  - atrion_mcp.action_mcp_personen
+  tests:
+  - test_doku_mcp_person_sperren
+- funktion: atrion_mcp.F16
+  seite: technik/mcp/werkzeugkatalog
+  sichten: []
+  tests: []
+- funktion: atrion_mcp.F17
+  seite: technik/mcp/odoo-werkzeuge
+  sichten: []
+  tests: []
+- seite: technik/mcp/werkzeugkatalog
+- seite: technik/mcp/werkzeug-kontext-abrufen
+- seite: technik/mcp/werkzeug-status-abrufen
+- seite: technik/mcp/werkzeug-mandate-suchen
+- seite: technik/mcp/werkzeug-mandat-lesen
+- seite: technik/mcp/werkzeug-zustaendigkeiten-lesen
+- seite: technik/mcp/werkzeug-audit-requests-suchen
+- seite: technik/mcp/einrichtung-claude-code
+- seite: technik/mcp/bestaetigung
+- seite: technik/mcp/limits
+- seite: technik/mcp/fehlercodes
+- seite: technik/mcp/initialisierung
+- seite: technik/mcp/werkzeugausfuehrung
+- seite: technik/mcp/mandatskontext
+- seite: technik/mcp/oauth-token
+- seite: technik/mcp/odoo-werkzeuge
+- seite: technik/erweiterung/mcp-werkzeug-liefern
+- seite: technik/datenmodell/mcp
+- seite: technik/betrieb/mcp-einstellungen
+- seite: technik/betrieb/mcp-cron
+- seite: technik/audit/mcp-protokoll
+- funktion: grundlagen.anmelden
+  seite: benutzer/grundlagen/anmelden
+  sichten:
+  - vorlage:web.login
+  tests:
+  - test_doku_grundlagen_anmelden
+- funktion: grundlagen.abmelden
+  seite: benutzer/grundlagen/abmelden
+  sichten:
+  - Benutzermenü
+  tests:
+  - test_doku_grundlagen_abmelden
+- funktion: grundlagen.passwort-aendern
+  seite: benutzer/grundlagen/passwort-aendern
+  sichten:
+  - base.change_password_own_form
+  tests:
+  - test_doku_grundlagen_passwort_aendern
+- funktion: grundlagen.passwort-zuruecksetzen
+  seite: benutzer/grundlagen/passwort-zuruecksetzen
+  sichten:
+  - vorlage:auth_signup.reset_password
+  tests:
+  - test_doku_grundlagen_passwort_zuruecksetzen
+- funktion: grundlagen.zwei-faktor-einrichten
+  seite: benutzer/grundlagen/zwei-faktor-einrichten
+  sichten:
+  - auth_totp.view_totp_wizard
+  tests:
+  - test_doku_grundlagen_zwei_faktor_einrichten
+- funktion: grundlagen.zwei-faktor-anmelden
+  seite: benutzer/grundlagen/zwei-faktor-anmelden
+  sichten:
+  - vorlage:auth_totp.auth_totp_form
+  tests:
+  - test_doku_grundlagen_zwei_faktor_anmelden
+- funktion: grundlagen.zwei-faktor-geraete
+  seite: benutzer/grundlagen/zwei-faktor-geraete
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_zwei_faktor_geraete
+- funktion: grundlagen.passkey-einrichten
+  seite: benutzer/grundlagen/passkey-einrichten
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_passkey_einrichten
+- funktion: grundlagen.alle-geraete-abmelden
+  seite: benutzer/grundlagen/alle-geraete-abmelden
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_alle_geraete_abmelden
+- funktion: grundlagen.identitaet-bestaetigen
+  seite: benutzer/grundlagen/identitaet-bestaetigen
+  sichten:
+  - base.res_users_identitycheck_view_form
+  tests:
+  - test_doku_grundlagen_identitaet_bestaetigen
+- funktion: grundlagen.sprache-wechseln
+  seite: benutzer/grundlagen/sprache-wechseln
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_sprache_wechseln
+- funktion: grundlagen.zeitzone-einstellen
+  seite: benutzer/grundlagen/zeitzone-einstellen
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_zeitzone_einstellen
+- funktion: grundlagen.profil-und-signatur
+  seite: benutzer/grundlagen/profil-und-signatur
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_profil_und_signatur
+- funktion: grundlagen.benachrichtigungen
+  seite: benutzer/grundlagen/benachrichtigungen
+  sichten:
+  - base.view_users_form_simple_modif
+  tests:
+  - test_doku_grundlagen_benachrichtigungen
+- funktion: grundlagen.darstellung
+  seite: benutzer/grundlagen/darstellung
+  sichten:
+  - Benutzermenü
+  tests:
+  - test_doku_grundlagen_darstellung
+- funktion: grundlagen.mandat-waehlen
+  seite: benutzer/grundlagen/mandat-waehlen
+  sichten:
+  - komponente:atrion_basis.MandatswahlSystray
+  tests:
+  - tour_basis_mandatswahl
+- funktion: grundlagen.apps-und-menues
+  seite: benutzer/grundlagen/apps-und-menues
+  sichten:
+  - Startseite
+  tests:
+  - test_doku_grundlagen_apps_und_menues
+- funktion: grundlagen.befehlspalette
+  seite: benutzer/grundlagen/befehlspalette
+  sichten:
+  - komponente:web.CommandPalette
+  tests:
+  - test_doku_grundlagen_befehlspalette
+- funktion: grundlagen.tastaturkuerzel
+  seite: benutzer/grundlagen/tastaturkuerzel
+  sichten:
+  - komponente:web.CommandPalette
+  tests:
+  - test_doku_grundlagen_tastaturkuerzel
+- funktion: grundlagen.ansichten-wechseln
+  seite: benutzer/grundlagen/ansichten-wechseln
+  sichten:
+  - Kontrollleiste jeder Liste
+  tests:
+  - test_doku_grundlagen_ansichten_wechseln
+- funktion: grundlagen.pivot-und-grafik
+  seite: benutzer/grundlagen/pivot-und-grafik
+  sichten:
+  - Kontrollleiste jeder Liste
+  tests:
+  - test_doku_grundlagen_pivot_und_grafik
+- funktion: grundlagen.suchen
+  seite: benutzer/grundlagen/suchen
+  sichten:
+  - komponente:web.SearchBar
+  tests:
+  - test_doku_grundlagen_suchen
+- funktion: grundlagen.filtern
+  seite: benutzer/grundlagen/filtern
+  sichten:
+  - komponente:web.SearchBarMenu
+  tests:
+  - test_doku_grundlagen_filtern
+- funktion: grundlagen.gruppieren
+  seite: benutzer/grundlagen/gruppieren
+  sichten:
+  - komponente:web.SearchBarMenu
+  tests:
+  - test_doku_grundlagen_gruppieren
+- funktion: grundlagen.favoriten
+  seite: benutzer/grundlagen/favoriten
+  sichten:
+  - komponente:web.SearchBarMenu
+  tests:
+  - test_doku_grundlagen_favoriten
+- funktion: grundlagen.sortieren-und-blaettern
+  seite: benutzer/grundlagen/sortieren-und-blaettern
+  sichten:
+  - Kontrollleiste jeder Liste
+  tests:
+  - test_doku_grundlagen_sortieren_und_blaettern
+- funktion: grundlagen.spalten-anpassen
+  seite: benutzer/grundlagen/spalten-anpassen
+  sichten:
+  - Kontrollleiste jeder Liste
+  tests:
+  - test_doku_grundlagen_spalten_anpassen
+- funktion: grundlagen.auswaehlen-und-massenbearbeitung
+  seite: benutzer/grundlagen/auswaehlen-und-massenbearbeitung
+  sichten:
+  - Kontrollleiste jeder Liste
+  tests:
+  - test_doku_grundlagen_auswaehlen_und_massenbearbeitung
+- funktion: grundlagen.datensatz-bearbeiten
+  seite: benutzer/grundlagen/datensatz-bearbeiten
+  sichten:
+  - Kontrollleiste jedes Formulars
+  tests:
+  - test_doku_grundlagen_datensatz_bearbeiten
+- funktion: grundlagen.aenderungen-verwerfen
+  seite: benutzer/grundlagen/aenderungen-verwerfen
+  sichten:
+  - Kontrollleiste jedes Formulars
+  tests:
+  - test_doku_grundlagen_aenderungen_verwerfen
+- funktion: grundlagen.duplizieren
+  seite: benutzer/grundlagen/duplizieren
+  sichten:
+  - komponente:web.CogMenu
+  tests:
+  - test_doku_grundlagen_duplizieren
+- funktion: grundlagen.archivieren-und-loeschen
+  seite: benutzer/grundlagen/archivieren-und-loeschen
+  sichten:
+  - komponente:web.CogMenu
+  tests:
+  - test_doku_grundlagen_archivieren_und_loeschen
+- funktion: grundlagen.exportieren
+  seite: benutzer/grundlagen/exportieren
+  sichten:
+  - komponente:web.ExportDataDialog
+  tests:
+  - test_doku_grundlagen_exportieren
+- funktion: grundlagen.importieren
+  seite: benutzer/grundlagen/importieren
+  sichten:
+  - komponente:base_import.ImportAction
+  tests:
+  - test_doku_grundlagen_importieren
+- funktion: grundlagen.drucken
+  seite: benutzer/grundlagen/drucken
+  sichten:
+  - komponente:web.CogMenu
+  tests:
+  - test_doku_grundlagen_drucken
+- funktion: grundlagen.chatter
+  seite: benutzer/grundlagen/chatter
+  sichten:
+  - komponente:mail.Chatter
+  tests:
+  - test_doku_grundlagen_chatter
+- funktion: grundlagen.aktivitaeten
+  seite: benutzer/grundlagen/aktivitaeten
+  sichten:
+  - komponente:mail.Chatter
+  tests:
+  - test_doku_grundlagen_aktivitaeten
+- funktion: grundlagen.folgen
+  seite: benutzer/grundlagen/folgen
+  sichten:
+  - komponente:mail.Chatter
+  tests:
+  - test_doku_grundlagen_folgen
+- funktion: grundlagen.anhaenge
+  seite: benutzer/grundlagen/anhaenge
+  sichten:
+  - komponente:mail.Chatter
+  tests:
+  - test_doku_grundlagen_anhaenge
+- funktion: grundlagen.posteingang
+  seite: benutzer/grundlagen/posteingang
+  sichten:
+  - komponente:mail.MessagingMenu
+  tests:
+  - test_doku_grundlagen_posteingang
+- funktion: grundlagen.discuss
+  seite: benutzer/grundlagen/discuss
+  sichten:
+  - komponente:mail.MessagingMenu
+  tests:
+  - test_doku_grundlagen_discuss
+- funktion: grundlagen.benutzer-einladen
+  seite: benutzer/grundlagen/benutzer-einladen
+  sichten:
+  - base.view_users_form
+  tests:
+  - test_doku_grundlagen_benutzer_einladen
+- funktion: grundlagen.zugriffsrechte-setzen
+  seite: benutzer/grundlagen/zugriffsrechte-setzen
+  sichten:
+  - base.view_users_form
+  tests:
+  - test_doku_grundlagen_zugriffsrechte_setzen
+- funktion: grundlagen.mandate-zuweisen
+  seite: benutzer/grundlagen/mandate-zuweisen
+  sichten:
+  - base.view_users_form
+  tests:
+  - test_doku_grundlagen_mandate_zuweisen
+- funktion: grundlagen.rechte-kopieren
+  seite: benutzer/grundlagen/rechte-kopieren
+  sichten:
+  - base.view_users_form
+  tests:
+  - test_doku_grundlagen_rechte_kopieren
+- funktion: grundlagen.passwort-fuer-andere-zuruecksetzen
+  seite: benutzer/grundlagen/passwort-fuer-andere-zuruecksetzen
+  sichten:
+  - base.view_users_form
+  tests:
+  - test_doku_grundlagen_passwort_fuer_andere_zuruecksetzen
+- funktion: grundlagen.mobil-nutzen
+  seite: benutzer/grundlagen/mobil-nutzen
+  sichten: []
+  tests:
+  - test_doku_grundlagen_mobil_nutzen
