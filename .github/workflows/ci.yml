@@ -30,7 +30,7 @@ jobs:
         run: python scripts/gen_nav.py --check
       - name: Website bauen (strict)
         run: zensical build --strict --clean
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: site
