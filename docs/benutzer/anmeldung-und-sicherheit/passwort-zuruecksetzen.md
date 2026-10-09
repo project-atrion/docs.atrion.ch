@@ -18,4 +18,4 @@ Alle Personen mit einem Benutzerkonto, ohne Anmeldung.
 
 ## Hinweise
 
-- Kommt keine E-Mail an, prüfe den Spam-Ordner oder wende dich an die Administration. Sie kann dein Passwort auch direkt setzen, siehe [Passwort einer Person zurücksetzen](passwort-fuer-andere-zuruecksetzen.md).
+- Kommt keine E-Mail an, prüfe den Spam-Ordner oder wende dich an die Administration. Sie kann dein Passwort auch direkt setzen, siehe [Passwort einer Person zurücksetzen](../administration/passwort-fuer-andere-zuruecksetzen.md).

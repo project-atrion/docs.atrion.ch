@@ -8,7 +8,12 @@ Prüft:
   R4  Benutzerseiten haben die Pflichtabschnitte.
   R5  Jeder relative Link und jedes Bild zeigt auf eine vorhandene Datei.
   R6  Jede Benutzerseite hat mindestens einen Screenshot und keinen Abschnitt «Video».
+  R7  docs/media.lock.json passt zu den Dateien: jeder Screenshot steht mit seinem Hash drin,
+      und die Vimeo-ID stimmt mit dem Register überein.
+  R8  Ist im Register eine Vimeo-ID gesetzt, bettet die Seite genau dieses Video ein.
 """
+import hashlib
+import json
 import pathlib
 import re
 import sys
@@ -59,6 +64,28 @@ for datei in sorted(DOCS.rglob("*.md")):
             continue
         if not (datei.parent / ziel).resolve().exists():
             fehler.append(f"R5 Link ins Leere: docs/{rel}.md → {ziel}")
+
+# R7/R8: Medien
+lock_datei = DOCS / "media.lock.json"
+lock = json.loads(lock_datei.read_text(encoding="utf-8")) if lock_datei.exists() else {}
+shots = DOCS / "assets" / "screenshots"
+for ordner in sorted(p for p in shots.iterdir() if p.is_dir()) if shots.exists() else []:
+    eintrag = lock.get(ordner.name)
+    if eintrag is None:
+        fehler.append(f"R7 Screenshots ohne Eintrag in media.lock.json: {ordner.name}")
+        continue
+    dateien = {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in ordner.glob("*.png")}
+    if dateien != eintrag.get("screenshots", {}):
+        fehler.append(f"R7 media.lock.json passt nicht zu den Screenshots: {ordner.name} (capture_screenshots.py ausführen)")
+for eintrag_reg in register:
+    slug = eintrag_reg["seite"].split("/")[-1]
+    vid = str(eintrag_reg.get("vimeo") or "")
+    if vid != str(lock.get(slug, {}).get("vimeo", {}).get("id", "")):
+        fehler.append(f"R7 Vimeo-ID in register.yaml und media.lock.json verschieden: {slug}")
+    if vid:
+        text = (DOCS / f"{eintrag_reg['seite']}.md").read_text(encoding="utf-8")
+        if f"player.vimeo.com/video/{vid}" not in text:
+            fehler.append(f"R8 Vimeo-Video {vid} nicht eingebettet: docs/{eintrag_reg['seite']}.md")
 
 if fehler:
     print(f"{len(fehler)} Fehler:")

@@ -20,6 +20,10 @@ Alle angemeldeten Personen.
 
     ![Gib das neue Passwort zweimal ein und klicke auf Passwort ändern](../../assets/screenshots/passwort-aendern/03-neues-passwort.png)
 
+<!-- video -->
+<div class="atrion-video"><iframe src="https://player.vimeo.com/video/1234425112?dnt=1&title=0&byline=0&portrait=0" title="Video: Passwort ändern" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+<!-- /video -->
+
 ## Hinweise
 
 - Nach dem Ändern bleibst du in diesem Browser angemeldet. Andere Geräte musst du neu anmelden.

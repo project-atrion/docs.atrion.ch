@@ -1,224 +1,240 @@
 # Register: Funktion -> Seite, Kontexthilfe-Sichten, Screenshot-Ordner und Vimeo-ID (leer, bis das Video hochgeladen ist).
 # Screenshots erzeugt scripts/capture_screenshots.py.
-- funktion: grundlagen.anmelden
-  seite: benutzer/grundlagen/anmelden
+- funktion: anmeldung-und-sicherheit.anmelden
+  seite: benutzer/anmeldung-und-sicherheit/anmelden
   sichten:
   - vorlage:web.login
   screenshots: assets/screenshots/anmelden
-  vimeo: ""
-- funktion: grundlagen.abmelden
-  seite: benutzer/grundlagen/abmelden
+  vimeo: "1234424919"
+- funktion: anmeldung-und-sicherheit.abmelden
+  seite: benutzer/anmeldung-und-sicherheit/abmelden
   sichten:
   - Benutzermenü
   screenshots: assets/screenshots/abmelden
-  vimeo: ""
-- funktion: grundlagen.passwort-zuruecksetzen
-  seite: benutzer/grundlagen/passwort-zuruecksetzen
-  sichten:
-  - vorlage:auth_signup.reset_password
-  screenshots: assets/screenshots/passwort-zuruecksetzen
-  vimeo: ""
-- funktion: grundlagen.passwort-aendern
-  seite: benutzer/grundlagen/passwort-aendern
-  sichten:
-  - base.change_password_own_form
-  screenshots: assets/screenshots/passwort-aendern
-  vimeo: ""
-- funktion: grundlagen.zwei-faktor-einrichten
-  seite: benutzer/grundlagen/zwei-faktor-einrichten
-  sichten:
-  - auth_totp.view_totp_wizard
-  screenshots: assets/screenshots/zwei-faktor-einrichten
-  vimeo: ""
-- funktion: grundlagen.alle-geraete-abmelden
-  seite: benutzer/grundlagen/alle-geraete-abmelden
+  vimeo: ''
+- funktion: anmeldung-und-sicherheit.alle-geraete-abmelden
+  seite: benutzer/anmeldung-und-sicherheit/alle-geraete-abmelden
   sichten:
   - base.view_users_form_simple_modif
   screenshots: assets/screenshots/alle-geraete-abmelden
-  vimeo: ""
-- funktion: grundlagen.sprache-wechseln
-  seite: benutzer/grundlagen/sprache-wechseln
+  vimeo: ''
+- funktion: anmeldung-und-sicherheit.passwort-zuruecksetzen
+  seite: benutzer/anmeldung-und-sicherheit/passwort-zuruecksetzen
+  sichten:
+  - vorlage:auth_signup.reset_password
+  screenshots: assets/screenshots/passwort-zuruecksetzen
+  vimeo: ''
+- funktion: anmeldung-und-sicherheit.passwort-aendern
+  seite: benutzer/anmeldung-und-sicherheit/passwort-aendern
+  sichten:
+  - base.change_password_own_form
+  screenshots: assets/screenshots/passwort-aendern
+  vimeo: "1234425112"
+- funktion: anmeldung-und-sicherheit.zwei-faktor-einrichten
+  seite: benutzer/anmeldung-und-sicherheit/zwei-faktor-einrichten
+  sichten:
+  - auth_totp.view_totp_wizard
+  screenshots: assets/screenshots/zwei-faktor-einrichten
+  vimeo: "1234425132"
+- funktion: anmeldung-und-sicherheit.zwei-faktor-anmelden
+  seite: benutzer/anmeldung-und-sicherheit/zwei-faktor-anmelden
+  screenshots: assets/screenshots/zwei-faktor-anmelden
+  vimeo: ''
+- funktion: anmeldung-und-sicherheit.passkey-einrichten
+  seite: benutzer/anmeldung-und-sicherheit/passkey-einrichten
+  screenshots: assets/screenshots/passkey-einrichten
+  vimeo: "1234425160"
+- funktion: anmeldung-und-sicherheit.passkey-anmelden
+  seite: benutzer/anmeldung-und-sicherheit/passkey-anmelden
+  screenshots: assets/screenshots/passkey-anmelden
+  vimeo: ''
+- funktion: anmeldung-und-sicherheit.passkey-entfernen
+  seite: benutzer/anmeldung-und-sicherheit/passkey-entfernen
+  screenshots: assets/screenshots/passkey-entfernen
+  vimeo: ''
+- funktion: persoenliche-einstellungen.sprache-wechseln
+  seite: benutzer/persoenliche-einstellungen/sprache-wechseln
   sichten:
   - base.view_users_form_simple_modif
   screenshots: assets/screenshots/sprache-wechseln
-  vimeo: ""
-- funktion: grundlagen.zeitzone-einstellen
-  seite: benutzer/grundlagen/zeitzone-einstellen
+  vimeo: ''
+- funktion: persoenliche-einstellungen.zeitzone-einstellen
+  seite: benutzer/persoenliche-einstellungen/zeitzone-einstellen
   sichten:
   - base.view_users_form_simple_modif
   screenshots: assets/screenshots/zeitzone-einstellen
-  vimeo: ""
-- funktion: grundlagen.profil-und-signatur
-  seite: benutzer/grundlagen/profil-und-signatur
+  vimeo: ''
+- funktion: persoenliche-einstellungen.profil-und-signatur
+  seite: benutzer/persoenliche-einstellungen/profil-und-signatur
   sichten:
   - base.view_users_form_simple_modif
   screenshots: assets/screenshots/profil-und-signatur
-  vimeo: ""
-- funktion: grundlagen.benachrichtigungen
-  seite: benutzer/grundlagen/benachrichtigungen
+  vimeo: ''
+- funktion: persoenliche-einstellungen.benachrichtigungen
+  seite: benutzer/persoenliche-einstellungen/benachrichtigungen
   sichten:
   - base.view_users_form_simple_modif
   screenshots: assets/screenshots/benachrichtigungen
-  vimeo: ""
-- funktion: grundlagen.darstellung
-  seite: benutzer/grundlagen/darstellung
+  vimeo: ''
+- funktion: persoenliche-einstellungen.darstellung
+  seite: benutzer/persoenliche-einstellungen/darstellung
   sichten:
   - Benutzermenü
   screenshots: assets/screenshots/darstellung
-  vimeo: ""
-- funktion: grundlagen.apps-und-menues
-  seite: benutzer/grundlagen/apps-und-menues
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.apps-und-menues
+  seite: benutzer/arbeiten-mit-atrion/apps-und-menues
   sichten:
   - Startseite
   screenshots: assets/screenshots/apps-und-menues
-  vimeo: ""
-- funktion: grundlagen.befehlspalette
-  seite: benutzer/grundlagen/befehlspalette
+  vimeo: "1234425189"
+- funktion: arbeiten-mit-atrion.befehlspalette
+  seite: benutzer/arbeiten-mit-atrion/befehlspalette
   sichten:
   - komponente:web.CommandPalette
   screenshots: assets/screenshots/befehlspalette
-  vimeo: ""
-- funktion: grundlagen.tastaturkuerzel
-  seite: benutzer/grundlagen/tastaturkuerzel
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.tastaturkuerzel
+  seite: benutzer/arbeiten-mit-atrion/tastaturkuerzel
   sichten:
   - komponente:web.CommandPalette
   screenshots: assets/screenshots/tastaturkuerzel
-  vimeo: ""
-- funktion: grundlagen.ansichten-wechseln
-  seite: benutzer/grundlagen/ansichten-wechseln
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.ansichten-wechseln
+  seite: benutzer/arbeiten-mit-atrion/ansichten-wechseln
   sichten:
   - Kontrollleiste jeder Liste
   screenshots: assets/screenshots/ansichten-wechseln
-  vimeo: ""
-- funktion: grundlagen.suchen
-  seite: benutzer/grundlagen/suchen
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.suchen
+  seite: benutzer/arbeiten-mit-atrion/suchen
   sichten:
   - komponente:web.SearchBar
   screenshots: assets/screenshots/suchen
-  vimeo: ""
-- funktion: grundlagen.filtern
-  seite: benutzer/grundlagen/filtern
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.filtern
+  seite: benutzer/arbeiten-mit-atrion/filtern
   sichten:
   - komponente:web.SearchBarMenu
   screenshots: assets/screenshots/filtern
-  vimeo: ""
-- funktion: grundlagen.gruppieren
-  seite: benutzer/grundlagen/gruppieren
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.gruppieren
+  seite: benutzer/arbeiten-mit-atrion/gruppieren
   sichten:
   - komponente:web.SearchBarMenu
   screenshots: assets/screenshots/gruppieren
-  vimeo: ""
-- funktion: grundlagen.favoriten
-  seite: benutzer/grundlagen/favoriten
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.favoriten
+  seite: benutzer/arbeiten-mit-atrion/favoriten
   sichten:
   - komponente:web.SearchBarMenu
   screenshots: assets/screenshots/favoriten
-  vimeo: ""
-- funktion: grundlagen.sortieren-und-blaettern
-  seite: benutzer/grundlagen/sortieren-und-blaettern
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.sortieren-und-blaettern
+  seite: benutzer/arbeiten-mit-atrion/sortieren-und-blaettern
   sichten:
   - Kontrollleiste jeder Liste
   screenshots: assets/screenshots/sortieren-und-blaettern
-  vimeo: ""
-- funktion: grundlagen.spalten-anpassen
-  seite: benutzer/grundlagen/spalten-anpassen
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.spalten-anpassen
+  seite: benutzer/arbeiten-mit-atrion/spalten-anpassen
   sichten:
   - Kontrollleiste jeder Liste
   screenshots: assets/screenshots/spalten-anpassen
-  vimeo: ""
-- funktion: grundlagen.auswaehlen-und-massenbearbeitung
-  seite: benutzer/grundlagen/auswaehlen-und-massenbearbeitung
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.auswaehlen-und-massenbearbeitung
+  seite: benutzer/arbeiten-mit-atrion/auswaehlen-und-massenbearbeitung
   sichten:
   - Kontrollleiste jeder Liste
   screenshots: assets/screenshots/auswaehlen-und-massenbearbeitung
-  vimeo: ""
-- funktion: grundlagen.datensatz-bearbeiten
-  seite: benutzer/grundlagen/datensatz-bearbeiten
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.datensatz-bearbeiten
+  seite: benutzer/arbeiten-mit-atrion/datensatz-bearbeiten
   sichten:
   - Kontrollleiste jedes Formulars
   screenshots: assets/screenshots/datensatz-bearbeiten
-  vimeo: ""
-- funktion: grundlagen.aenderungen-verwerfen
-  seite: benutzer/grundlagen/aenderungen-verwerfen
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.aenderungen-verwerfen
+  seite: benutzer/arbeiten-mit-atrion/aenderungen-verwerfen
   sichten:
   - Kontrollleiste jedes Formulars
   screenshots: assets/screenshots/aenderungen-verwerfen
-  vimeo: ""
-- funktion: grundlagen.duplizieren
-  seite: benutzer/grundlagen/duplizieren
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.duplizieren
+  seite: benutzer/arbeiten-mit-atrion/duplizieren
   sichten:
   - komponente:web.CogMenu
   screenshots: assets/screenshots/duplizieren
-  vimeo: ""
-- funktion: grundlagen.archivieren-und-loeschen
-  seite: benutzer/grundlagen/archivieren-und-loeschen
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.archivieren-und-loeschen
+  seite: benutzer/arbeiten-mit-atrion/archivieren-und-loeschen
   sichten:
   - komponente:web.CogMenu
   screenshots: assets/screenshots/archivieren-und-loeschen
-  vimeo: ""
-- funktion: grundlagen.exportieren
-  seite: benutzer/grundlagen/exportieren
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.exportieren
+  seite: benutzer/arbeiten-mit-atrion/exportieren
   sichten:
   - komponente:web.ExportDataDialog
   screenshots: assets/screenshots/exportieren
-  vimeo: ""
-- funktion: grundlagen.importieren
-  seite: benutzer/grundlagen/importieren
+  vimeo: ''
+- funktion: arbeiten-mit-atrion.importieren
+  seite: benutzer/arbeiten-mit-atrion/importieren
   sichten:
   - komponente:base_import.ImportAction
   screenshots: assets/screenshots/importieren
-  vimeo: ""
-- funktion: grundlagen.chatter
-  seite: benutzer/grundlagen/chatter
+  vimeo: ''
+- funktion: zusammenarbeit.chatter
+  seite: benutzer/zusammenarbeit/chatter
   sichten:
   - komponente:mail.Chatter
   screenshots: assets/screenshots/chatter
-  vimeo: ""
-- funktion: grundlagen.aktivitaeten
-  seite: benutzer/grundlagen/aktivitaeten
+  vimeo: ''
+- funktion: zusammenarbeit.aktivitaeten
+  seite: benutzer/zusammenarbeit/aktivitaeten
   sichten:
   - komponente:mail.Chatter
   screenshots: assets/screenshots/aktivitaeten
-  vimeo: ""
-- funktion: grundlagen.folgen
-  seite: benutzer/grundlagen/folgen
+  vimeo: ''
+- funktion: zusammenarbeit.folgen
+  seite: benutzer/zusammenarbeit/folgen
   sichten:
   - komponente:mail.Chatter
   screenshots: assets/screenshots/folgen
-  vimeo: ""
-- funktion: grundlagen.anhaenge
-  seite: benutzer/grundlagen/anhaenge
+  vimeo: ''
+- funktion: zusammenarbeit.anhaenge
+  seite: benutzer/zusammenarbeit/anhaenge
   sichten:
   - komponente:mail.Chatter
   screenshots: assets/screenshots/anhaenge
-  vimeo: ""
-- funktion: grundlagen.posteingang
-  seite: benutzer/grundlagen/posteingang
+  vimeo: ''
+- funktion: zusammenarbeit.posteingang
+  seite: benutzer/zusammenarbeit/posteingang
   sichten:
   - komponente:mail.MessagingMenu
   screenshots: assets/screenshots/posteingang
-  vimeo: ""
-- funktion: grundlagen.discuss
-  seite: benutzer/grundlagen/discuss
+  vimeo: ''
+- funktion: zusammenarbeit.discuss
+  seite: benutzer/zusammenarbeit/discuss
   sichten:
   - komponente:mail.MessagingMenu
   screenshots: assets/screenshots/discuss
-  vimeo: ""
-- funktion: grundlagen.benutzer-einladen
-  seite: benutzer/grundlagen/benutzer-einladen
+  vimeo: ''
+- funktion: administration.benutzer-einladen
+  seite: benutzer/administration/benutzer-einladen
   sichten:
   - base.view_users_form
   screenshots: assets/screenshots/benutzer-einladen
-  vimeo: ""
-- funktion: grundlagen.zugriffsrechte-setzen
-  seite: benutzer/grundlagen/zugriffsrechte-setzen
+  vimeo: ''
+- funktion: administration.zugriffsrechte-setzen
+  seite: benutzer/administration/zugriffsrechte-setzen
   sichten:
   - base.view_users_form
   screenshots: assets/screenshots/zugriffsrechte-setzen
-  vimeo: ""
-- funktion: grundlagen.passwort-fuer-andere-zuruecksetzen
-  seite: benutzer/grundlagen/passwort-fuer-andere-zuruecksetzen
+  vimeo: ''
+- funktion: administration.passwort-fuer-andere-zuruecksetzen
+  seite: benutzer/administration/passwort-fuer-andere-zuruecksetzen
   sichten:
   - base.view_users_form
   screenshots: assets/screenshots/passwort-fuer-andere-zuruecksetzen
-  vimeo: ""
+  vimeo: ''
