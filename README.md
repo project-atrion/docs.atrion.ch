@@ -19,6 +19,9 @@ zensical serve          # http://localhost:8000
 | `docs/assets/screenshots/<slug>/` | Screenshots je Seite, erzeugt von `scripts/capture_screenshots.py` |
 | `docs/register.yaml` | Register: Funktion → Seite, Kontexthilfe-Sichten, Screenshot-Ordner, Vimeo-ID |
 | `scripts/capture_screenshots.py` | Nimmt Screenshots und Videos aus einer laufenden Atrion-Instanz auf |
+| `scripts/upload_vimeo.py` | Lädt geänderte Videos auf Vimeo und bettet sie ein |
+| `scripts/seed_docs_db.py` | Fiktive Demodaten für die Screenshot-Datenbank |
+| `docs/media.lock.json` | Hashes von Eingaben, Screenshots und Videos, Vimeo-IDs |
 | `scripts/check_docs.py` | Abdeckungsprüfung (CI-Gate) |
 | `scripts/gen_nav.py` | Erzeugt die Navigation in `zensical.toml` |
 
@@ -46,32 +49,49 @@ ATRION_PASSWORD=… odoo-bin shell -c docs-odoo.conf -d odoo_atrion_docs --no-ht
 `scripts/seed_docs_db.py` legt die Firma **Project Atrion AG** an, meldet die Aufnahmen als **Max Mustermann** an und zeigt **Jutta Musterfrau** als Beispielperson, dazu einige weitere fiktive Personen mit `@example.ch`-Adressen, einen Kanal und eine Direktnachricht. Das Passwort kommt nur aus `ATRION_PASSWORD`.
 
 ```bash
-pip install playwright pyyaml          # Chromium: playwright install chromium
+pip install playwright pyyaml pillow   # Chromium: playwright install chromium
 export ATRION_URL=http://localhost:8070 ATRION_LOGIN=admin ATRION_PASSWORD=…
-python scripts/capture_screenshots.py              # alle Seiten
-python scripts/capture_screenshots.py filtern      # nur eine Seite
+python scripts/capture_screenshots.py              # nur geänderte Funktionen
+python scripts/capture_screenshots.py --all        # Full Run, zum Beispiel nach einem Odoo-Update
+python scripts/capture_screenshots.py filtern      # eine Seite gezielt neu
 ```
 
 Viewport 1440 × 900, Fullpage, de_CH, helles Design. Passwortfelder, QR-Codes und Geheimnisse werden maskiert. Zugangsdaten nur über Umgebungsvariablen, nie ins Repo.
 
+### Nur Geändertes neu aufnehmen
+
+`docs/media.lock.json` hält je Funktion fest:
+
+| Feld | Inhalt |
+|---|---|
+| `eingabe` | Hash aus den Aufnahmeschritten im Capture-Skript, den gemeinsamen Bausteinen, `seed_docs_db.py`, den installierten Odoo-Modulversionen und dem Seiteninhalt |
+| `screenshots` | Hash jedes Screenshots |
+| `video` | Videodatei, ihr Hash und die Eingabe, mit der es aufgenommen wurde |
+| `vimeo` | Vimeo-ID und Hash der hochgeladenen Datei |
+
+Ohne `--all` nimmt das Skript nur Funktionen neu auf, deren Eingabe sich geändert hat. Ein neuer Screenshot ersetzt den alten nur, wenn mehr als 0,3 % der Pixel sichtbar abweichen; Uhrzeiten wie «vor 3 Sekunden» erzeugen so keine Git-Änderungen. Am Ende steht eine Zusammenfassung (neu, geändert, unverändert). Die CI prüft, dass `media.lock.json` zu den Screenshots und zum Register passt.
+
 ## Videos
 
-Videos liegen nicht im Repo und werden nicht auf der Website eingebettet, bis sie auf Vimeo sind.
+Videos liegen nicht im Repo. Nach den Screenshots:
 
 ```bash
 pip install imageio-ffmpeg             # falls kein ffmpeg installiert ist
-python scripts/capture_screenshots.py --videos ../docs-videos
+python scripts/capture_screenshots.py --videos ../docs-videos           # nur geänderte Abläufe
+VIMEO_TOKEN=… python scripts/upload_vimeo.py ../docs-videos --ordner "Atrion Dokumentation"
 ```
 
-Das Skript nimmt für jede Seite mit mindestens drei Schritten den Ablauf auf (1440 × 900, ruhiges Tempo; QR-Codes, Schlüssel und Codes sind ausgeblendet), wandelt ihn in MP4 (H.264, yuv420p, faststart) um und schreibt `videos.csv` (slug, Titel, Seite, Dauer, Datei) als Upload-Liste.
+Das Capture-Skript nimmt jeden geänderten Ablauf mit mindestens drei Schritten auf (1440 × 900, ruhiges Tempo; QR-Codes, Schlüssel und Codes sind ausgeblendet), wandelt ihn in MP4 (H.264, yuv420p, faststart) um und führt `videos.csv` (slug, Titel, Seite, Dauer, Datei).
 
-Nach dem Upload die Vimeo-ID in `docs/register.yaml` bei `vimeo:` eintragen und auf der Seite nach den Schritten einfügen:
+`upload_vimeo.py` lädt nur Videos hoch, deren Datei sich gegenüber `media.lock.json` geändert hat. Bestehende ersetzt es als neue Version unter derselben Vimeo-ID, neue Funktionen bekommen ein neues Video, Videos zu entfernten Funktionen meldet es nur. Die Videos sind auf vimeo.com verborgen und nur auf docs.atrion.ch einbettbar (falls der Plan das nicht erlaubt: nicht gelistet). Danach trägt das Skript die ID in `register.yaml` und `media.lock.json` ein und bettet das Video auf der Seite nach den Schritten ein:
 
 ```html
-<div class="atrion-video"><iframe src="https://player.vimeo.com/video/<ID>?dnt=1&title=0&byline=0&portrait=0" title="<Titel der Seite>" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+<!-- video -->
+<div class="atrion-video"><iframe src="https://player.vimeo.com/video/<ID>?dnt=1&title=0&byline=0&portrait=0" title="Video: <Titel>" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+<!-- /video -->
 ```
 
-`dnt=1` verhindert Tracking-Cookies von Vimeo. Das responsive Format (16:10) liefert die Klasse `atrion-video` in `atrion.css`.
+`dnt=1` verhindert Tracking-Cookies von Vimeo. Den Token (Personal Access Token von developer.vimeo.com/apps, Scopes public, private, create, edit, upload, video_files) nur über `VIMEO_TOKEN` übergeben, zum Beispiel aus `odoo.atrion/setups/atrion.env`. Die CI verlangt für jede Vimeo-ID im Register die Einbettung auf der Seite.
 
 ## Schreibregeln
 

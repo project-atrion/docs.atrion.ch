@@ -5,15 +5,17 @@ Aufruf:
     ATRION_URL=http://localhost:8070 ATRION_LOGIN=admin ATRION_PASSWORD=… \\
         python scripts/capture_screenshots.py [slug …]
 
-Ohne slug werden alle Seiten neu aufgenommen. Die Bilder landen unter
+Ohne slug werden nur Funktionen neu aufgenommen, deren Eingaben sich geändert haben
+(siehe docs/media.lock.json); --all erzwingt einen Full Run, zum Beispiel nach einem Odoo-Update.
+Ein neuer Screenshot ersetzt den alten nur, wenn er sich sichtbar unterscheidet. Die Bilder landen unter
 docs/assets/screenshots/<slug>/<nn>-<schritt>.png (Fullpage, 1440 × 900, de_CH, helles Design).
 Passwortfelder, QR-Codes und Geheimnisse werden maskiert. Die Instanz sollte nur fiktive
 Demodaten enthalten, denn die Bilder werden öffentlich.
 
-Videos (nicht im Repo, Upload auf Vimeo von Hand):
-    python scripts/capture_screenshots.py --videos ../docs-videos [slug …]
+Videos (nicht im Repo, Upload mit scripts/upload_vimeo.py):
+    python scripts/capture_screenshots.py --videos ../docs-videos [--all] [slug …]
 
-Nimmt für jede Seite mit mindestens drei Schritten den Ablauf als Video auf, wandelt ihn mit
+Nimmt für jede geänderte Seite mit mindestens drei Schritten den Ablauf als Video auf, wandelt ihn mit
 ffmpeg in MP4 (H.264) um und schreibt die Upload-Liste videos.csv. ffmpeg kommt aus FFMPEG,
 dem PATH oder dem Python-Paket imageio-ffmpeg; ohne ffmpeg bleibt WebM.
 """
@@ -21,6 +23,9 @@ import base64
 import csv
 import hashlib
 import hmac
+import inspect
+import io
+import json
 import os
 import pathlib
 import re
@@ -34,6 +39,9 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ZIEL = ROOT / "docs" / "assets" / "screenshots"
+LOCK = ROOT / "docs" / "media.lock.json"
+SEEDER = ROOT / "scripts" / "seed_docs_db.py"
+TOLERANZ = 0.003  # Anteil abweichender Pixel, unter dem ein Screenshot als unverändert gilt
 URL = os.environ["ATRION_URL"].rstrip("/")
 LOGIN = os.environ["ATRION_LOGIN"]
 PASSWORT = os.environ["ATRION_PASSWORD"]
@@ -49,6 +57,7 @@ class Aufnahme:
         self.page = None
         self.sitzung = None  # eine Anmeldung für alle Seiten, damit die Geräteliste kurz bleibt
         self.video_dir = video_dir
+        self.bilder = {}  # slug -> {datei: neu|geändert|unverändert}
 
     def kontext(self, anmelden, video=False):
         extra = {"record_video_dir": str(self.video_dir), "record_video_size": {"width": 1440, "height": 900}} if video else {}
@@ -119,10 +128,24 @@ class Aufnahme:
             return
         ordner = ZIEL / slug
         ordner.mkdir(parents=True, exist_ok=True)
-        self.page.screenshot(path=str(ordner / f"{nr:02d}-{name}.png"), full_page=True,
-                             mask=[self.page.locator(s) for s in (*GEHEIM, *maske)], mask_color="#0b1f3a",
-                             animations="disabled", caret="hide")
-        print(f"  {slug}/{nr:02d}-{name}.png")
+        datei = ordner / f"{nr:02d}-{name}.png"
+        png = self.page.screenshot(full_page=True, mask=[self.page.locator(s) for s in (*GEHEIM, *maske)],
+                                   mask_color="#0b1f3a", animations="disabled", caret="hide")
+        status = "neu" if not datei.exists() else "geändert" if sichtbar_anders(datei.read_bytes(), png) else "unverändert"
+        if status != "unverändert":
+            datei.write_bytes(png)
+        self.bilder.setdefault(slug, {})[datei.name] = status
+        print(f"  {slug}/{datei.name} ({status})")
+
+    def umgebung(self):
+        """Odoo-Version und installierte Modulversionen der Instanz, für den Eingabe-Hash."""
+        return self.page.evaluate("""async () => {
+            const r = await fetch('/web/dataset/call_kw/ir.module.module/search_read', {method: 'POST',
+                headers: {'Content-Type': 'application/json'}, body: JSON.stringify({jsonrpc: '2.0', method: 'call',
+                params: {model: 'ir.module.module', method: 'search_read',
+                         args: [[['state', '=', 'installed']], ['name', 'latest_version']], kwargs: {order: 'name'}}})});
+            return (await r.json()).result.map(m => m.name + '=' + m.latest_version).join(',');
+        }""")
 
     # Bausteine
     def benutzermenue(self):
@@ -191,6 +214,47 @@ def totp(geheimnis, versatz=0):
     h = hmac.new(k, struct.pack(">Q", int(time.time()) // 30 + versatz), hashlib.sha1).digest()
     o = h[-1] & 15
     return f"{(struct.unpack('>I', h[o:o + 4])[0] & 0x7FFFFFFF) % 1000000:06d}"
+
+
+def sichtbar_anders(alt, neu):
+    """True, wenn sich zwei PNG mehr als TOLERANZ unterscheiden (Uhrzeiten u. Ä. zählen nicht)."""
+    if alt == neu:
+        return False
+    try:
+        from PIL import Image, ImageChops
+    except ImportError:
+        return True
+    a, b = Image.open(io.BytesIO(alt)).convert("RGB"), Image.open(io.BytesIO(neu)).convert("RGB")
+    if a.size != b.size:
+        return True
+    diff = ImageChops.difference(a, b).convert("L").point(lambda v: 255 if v > 24 else 0)
+    return diff.histogram()[255] / (a.size[0] * a.size[1]) > TOLERANZ
+
+
+def sha(daten):
+    return hashlib.sha256(daten if isinstance(daten, bytes) else daten.encode()).hexdigest()
+
+
+def lock_lesen():
+    return json.loads(LOCK.read_text(encoding="utf-8")) if LOCK.exists() else {}
+
+
+def lock_schreiben(lock):
+    LOCK.write_text(json.dumps(dict(sorted(lock.items())), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def seitentext(slug):
+    """Seiteninhalt ohne eingebettetes Video, damit das Einbetten keinen neuen Lauf auslöst."""
+    return re.sub(r"<!-- video -->.*?<!-- /video -->\n*", "", benutzerseite(slug).read_text(encoding="utf-8"), flags=re.S)
+
+
+def eingabe(slug, umgebung):
+    """Hash aller Eingaben einer Funktion: Aufnahmeschritte, Bausteine, Seeder, Odoo-Module, Seiteninhalt."""
+    fn = SEITEN[slug]
+    seiten = sorted(s for s, f in SEITEN.items() if f is fn)
+    teile = [inspect.getsource(fn), inspect.getsource(Aufnahme), SEEDER.read_text(encoding="utf-8"), umgebung]
+    teile += [seitentext(s) for s in seiten]
+    return sha("\n".join(teile))
 
 
 def neues_codefenster():
@@ -646,14 +710,24 @@ def titel(slug):
     return benutzerseite(slug).read_text(encoding="utf-8").splitlines()[0].lstrip("# ").strip()
 
 
-def videos(ziel, gewuenscht):
-    """Ein Video je Seite mit mindestens drei Schritten, als MP4 plus Upload-Liste videos.csv."""
+def videos(ziel, gewuenscht, alle):
+    """Ein Video je Ablauf mit mindestens drei Schritten, als MP4 plus Upload-Liste videos.csv.
+    Aufgenommen wird nur, was sich seit dem letzten Video geändert hat (Eingabe-Hash in media.lock.json)."""
     ziel.mkdir(parents=True, exist_ok=True)
-    slugs, erledigt = [], set()
+    lock = lock_lesen()
+    kandidaten, erledigt = [], set()
     for s in gewuenscht:  # ein Video je Ablauf, benannt nach der ersten Seite mit mindestens drei Schritten
         if SEITEN[s] not in erledigt and len(list((ZIEL / s).glob("*.png"))) >= 3:
-            slugs.append(s)
+            kandidaten.append(s)
             erledigt.add(SEITEN[s])
+    status = {}
+    slugs = []
+    for s in kandidaten:
+        v = lock.get(s, {}).get("video", {})
+        if alle or not v or v.get("eingabe") != lock.get(s, {}).get("eingabe") or not (ziel / v.get("datei", "-")).exists():
+            slugs.append(s)
+        else:
+            status[s] = "unverändert"
     ff, fehler, zeilen = ffmpeg(), [], []
     with sync_playwright() as pw:
         a = Aufnahme(pw.chromium.launch(slow_mo=250), video_dir=ziel / "roh")
@@ -680,41 +754,87 @@ def videos(ziel, gewuenscht):
             dauer = re.search(r"Duration: (\d+:\d+:\d+)", info)
             zeilen.append([slug, titel(slug), "https://docs.atrion.ch/" + benutzerseite(slug).relative_to(ROOT / "docs").with_suffix("").as_posix() + "/",
                            dauer.group(1) if dauer else "", datei.name])
+            eintrag = lock.setdefault(slug, {})
+            status[slug] = "geändert" if eintrag.get("video") else "neu"
+            eintrag["video"] = {"datei": datei.name, "sha256": sha(datei.read_bytes()), "eingabe": eintrag.get("eingabe", "")}
         a.browser.close()
     shutil.rmtree(ziel / "roh", ignore_errors=True)
-    with open(ziel / "videos.csv", "w", newline="", encoding="utf-8") as f:
-        csv.writer(f).writerows([["slug", "titel", "seite", "dauer", "datei"], *zeilen])
-    print(f"{len(zeilen)} Videos in {ziel}" + ("" if ff else " (WebM, kein ffmpeg gefunden)"))
+    # Upload-Liste: bestehende Zeilen behalten, neu aufgenommene ersetzen
+    csv_datei = ziel / "videos.csv"
+    alt = list(csv.reader(open(csv_datei, encoding="utf-8")))[1:] if csv_datei.exists() else []
+    neu = {z[0]: z for z in zeilen}
+    reihen = [neu.pop(z[0], z) for z in alt if z[0] in SEITEN] + list(neu.values())
+    with open(csv_datei, "w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows([["slug", "titel", "seite", "dauer", "datei"], *reihen])
+    lock_schreiben(lock)
+    print(f"Videos in {ziel}" + ("" if ff else " (WebM, kein ffmpeg gefunden)"))
+    zusammenfassung("Videos", status)
     return fehler
 
 
 def main():
     args = sys.argv[1:]
+    alle = "--all" in args
+    args = [x for x in args if x != "--all"]
     if "--videos" in args:
         i = args.index("--videos")
         ziel = pathlib.Path(args[i + 1]).expanduser().resolve()
-        fehler = videos(ziel, args[:i] + args[i + 2:] or list(SEITEN))
+        fehler = videos(ziel, args[:i] + args[i + 2:] or list(SEITEN), alle)
     else:
-        fehler = screenshots(args or list(SEITEN))
+        # einzeln genannte Seiten werden immer neu aufgenommen
+        fehler = screenshots(args or list(SEITEN), alle or bool(args))
     if fehler:
         print("Fehler:\n  " + "\n  ".join(fehler))
         sys.exit(1)
 
 
-def screenshots(gewuenscht):
-    fehler, erledigt = [], set()
+def zusammenfassung(was, status):
+    zahl = {k: sum(1 for v in status.values() if v == k) for k in ("neu", "geändert", "unverändert")}
+    print(f"{was}: {zahl['neu']} neu, {zahl['geändert']} geändert, {zahl['unverändert']} unverändert")
+
+
+def screenshots(gewuenscht, alle):
+    fehler, lock, status = [], lock_lesen(), {}
     with sync_playwright() as pw:
         a = Aufnahme(pw.chromium.launch())
+        a.neu()
+        umgebung = a.umgebung()
+        erledigt = set()
         for slug in gewuenscht:
-            if SEITEN[slug] in erledigt:
+            fn = SEITEN[slug]
+            if fn in erledigt:
                 continue
-            erledigt.add(SEITEN[slug])
+            erledigt.add(fn)
+            seiten = [s for s, f in SEITEN.items() if f is fn]
+            hashes = {s: eingabe(s, umgebung) for s in seiten}
+            if not alle and all(lock.get(s, {}).get("eingabe") == hashes[s] for s in seiten):
+                for s in seiten:
+                    status[s] = "unverändert"
+                continue
             print(slug)
+            a.bilder = {}
             try:
-                SEITEN[slug](a)
+                fn(a)
             except Exception as e:  # weiter mit der nächsten Seite, Fehler am Ende melden
                 fehler.append(f"{slug}: {str(e).splitlines()[0]}")
+                continue
+            for s in seiten:
+                neu = a.bilder.get(s, {})
+                for alt in (ZIEL / s).glob("*.png"):  # Schritte, die es nicht mehr gibt
+                    if alt.name not in neu:
+                        alt.unlink()
+                eintrag = lock.setdefault(s, {})
+                status[s] = ("neu" if not eintrag else
+                             "geändert" if any(v != "unverändert" for v in neu.values()) or len(neu) != len(eintrag.get("screenshots", {})) else
+                             "unverändert")
+                eintrag["eingabe"] = hashes[s]
+                eintrag["screenshots"] = {f.name: sha(f.read_bytes()) for f in sorted((ZIEL / s).glob("*.png"))}
         a.browser.close()
+    for s in list(lock):
+        if s not in SEITEN:
+            print(f"Funktion entfernt, Eintrag bleibt bis zum Aufräumen: {s}")
+    lock_schreiben(lock)
+    zusammenfassung("Screenshots", status)
     return fehler
 
 

@@ -1,0 +1,307 @@
+{
+  "abmelden": {
+    "eingabe": "8bb3f6ed9efcee2680c67d3421ac5b518c38f7590f1ec82a9a33c7f5f0d27699",
+    "screenshots": {
+      "01-benutzermenue.png": "675250799a0204ee128c9a7a74a796c5c18597249f068b8b2643119e0f802294",
+      "02-abgemeldet.png": "523602cf1a193197852d99bee576c41ba2bf2ac4515240241f679584b4435989"
+    }
+  },
+  "aenderungen-verwerfen": {
+    "eingabe": "cb3d6569303a15da766ff026ddf475f78fcb2ec367722a4e4819b784ffdce925",
+    "screenshots": {
+      "01-geaendert.png": "fb2b2c827d4f8a11e4a7e4bb6294201bf3c0c3ab62b44760cd344dd3595ca3df",
+      "02-verworfen.png": "ec9f4d09264d16475f5bae6074a3b9250d890277cef14609b96bb71b5cd7dc56"
+    }
+  },
+  "aktivitaeten": {
+    "eingabe": "77ec027276add67c4ee0ede4daa0fe2776a72ddbb9294eef15479bc22bbefd24",
+    "screenshots": {
+      "01-planen.png": "7d93795466138f8be14aa592f944a9cfd7d4b8ba7d83cfc5524216df59dfae82",
+      "02-uebersicht.png": "fcbf4083f375e4f95a9d9e2bbe155698fe08d4458bb63c9df62fad84066edf73"
+    }
+  },
+  "alle-geraete-abmelden": {
+    "eingabe": "7bdaf85f8e888b5a70713019eca0da999f9c2c2c1230e149638ef6a9fea4e04b",
+    "screenshots": {
+      "01-knopf.png": "9e35abf971450f0c46fafabf44d84d78a56982d5d72fa1f467b5e7175d682e9e"
+    }
+  },
+  "anhaenge": {
+    "eingabe": "881243829c4c0cb615845387a69544c3136d7a5d8749785b43d6192558ba9e84",
+    "screenshots": {
+      "01-bueroklammer.png": "b4497d499082fc1d8e1f652a3a1c56c41ad77f10052d62bd78c616a7eb45f5de"
+    }
+  },
+  "anmelden": {
+    "eingabe": "e8ee0ca83842e914050c56dd81f30c18b925c290c0d29a218dfe256e4f0fef09",
+    "screenshots": {
+      "01-anmeldeseite.png": "43294d0ec0f0a41013e60642f66cdec33daa7dc2073deec071a0a4e84193e175",
+      "02-zugangsdaten.png": "b02879cc4e929fd49e8dab06ac70fccc5b322889151d4dff52d13f478b9b2ada",
+      "03-startseite.png": "01376d6d56f423da43e12d3f01ee3ced307ccc4890de948773b8984d3d665713"
+    },
+    "video": {
+      "datei": "anmelden.mp4",
+      "sha256": "46da94b7ff48176eeaa7939def5ba0dd5d53ef977bba09697bf49e1beca2a813",
+      "eingabe": "e8ee0ca83842e914050c56dd81f30c18b925c290c0d29a218dfe256e4f0fef09"
+    }
+  },
+  "ansichten-wechseln": {
+    "eingabe": "a546af1885aa20c9a0c60bb8944129ede754c7b234cd02736ceb7647b3e4ebc5",
+    "screenshots": {
+      "01-liste.png": "cf206a5be8927faccd1e40c11acfb1a693050d90328ae2ac97c41af72377802e",
+      "02-kanban.png": "b3da67152b21497ddab78523489482b76557a4b937a3a623c7f53c6e97f60c6b"
+    }
+  },
+  "apps-und-menues": {
+    "eingabe": "d716e180a960512263b9b2e887ee43259b73b0cd457935970c560ed4ae7273b7",
+    "screenshots": {
+      "01-startseite.png": "01376d6d56f423da43e12d3f01ee3ced307ccc4890de948773b8984d3d665713",
+      "02-app-menue.png": "3b8bd86707fd3c7097e964064cf2866d4d5164971e1f9e56b3f259bdbacec7a5",
+      "03-zurueck-zur-startseite.png": "7bc15c82e727a1689d3b39f649770e1d768c8185a1a1a05845534fa40645b94f"
+    },
+    "video": {
+      "datei": "apps-und-menues.mp4",
+      "sha256": "43d6984f63f473043f634983dc4d0ae7de7fa0f975e7f076e787ca91ad15cc53",
+      "eingabe": "d716e180a960512263b9b2e887ee43259b73b0cd457935970c560ed4ae7273b7"
+    }
+  },
+  "archivieren-und-loeschen": {
+    "eingabe": "9eefb3598e7eec5c450ee70859f2e397b3eac12baed94d7fe8a82fc11b6d0b5b",
+    "screenshots": {
+      "01-aktionen.png": "050eff46c3caf461a8ceecc2e3a80957e63d631fa01e3c4662333011894e227a",
+      "02-bestaetigen.png": "42aa2c5c27e2b11a4e9561bfa6d9499c020acbe6aa02b45c170667bd9a4d7e0b"
+    }
+  },
+  "auswaehlen-und-massenbearbeitung": {
+    "eingabe": "44ace969c5d1159e25225daab13afc6c6032159adb6978acffb9a73306a07236",
+    "screenshots": {
+      "01-auswahl.png": "dbbb67ccc01e1c58a8627a114b1d19271fad441d6a3ebe67bf3b514974f5f547",
+      "02-aktionen.png": "b828218801bcbfc70c9495cc8630df47cdd20bc82936c6543f4afb58947ce0e9"
+    }
+  },
+  "befehlspalette": {
+    "eingabe": "adf2147090b324e210cf3d6944a6cb6dad6d039c74f4de53a2d3c7efe53a4d62",
+    "screenshots": {
+      "01-geoeffnet.png": "28f0d3e7eadb4a5c7af142c7df796de291b897bf82c3e0057603d6ee0895e956",
+      "02-suche.png": "e5c9a32e27e756ada8501d791fe073ee8d91357ba9e775633762608f89e845f5"
+    }
+  },
+  "benachrichtigungen": {
+    "eingabe": "879e93bfc6ae8061fe0de556c08754c11af1f7e8cc144b204c44b14f45608861",
+    "screenshots": {
+      "01-einstellung.png": "822f68f133cf6302778280955ba003c74a9bf2da77b7acb5ad6d62173884aa5b"
+    }
+  },
+  "benutzer-einladen": {
+    "eingabe": "acbd817331434b42d04ccbbb7b947ee43bc370ef5679b4f9e6464ac1fad45334",
+    "screenshots": {
+      "01-einladen.png": "c2b98c18b5d5adb11d36fcf5e563726d6cfd7f2682a16bd91e9e4041d6feef65"
+    }
+  },
+  "chatter": {
+    "eingabe": "92eb2621f971bb3333f277d92877604cc1ebf20efd0e4afc283c0462580a94ae",
+    "screenshots": {
+      "01-nachricht.png": "6aa97130eb1231fbf12103d7291090e3af8001c1adc354ff4454f28f7b813959",
+      "02-notiz.png": "feb694edcde287aea7329b202ef7a088f414b0085d977adee86566121909e6af"
+    }
+  },
+  "darstellung": {
+    "eingabe": "3275c1031a477fd1211512405545f9626499ea306cdf3e7fb1f87632f6f53435",
+    "screenshots": {
+      "01-design-waehlen.png": "9d5f8f5ff97e5d274866ca42ff755b448eb448c32115e2df716829349163cf1f"
+    }
+  },
+  "datensatz-bearbeiten": {
+    "eingabe": "c7e29a465f73ce76395ae8f9bba98e0955a2b3110a206158cf99a7c48022f691",
+    "screenshots": {
+      "01-neu.png": "9f56323f68e29b2fa44e5c8c45362416fb3c59a88f99698f53f16cbe9c7d7a3a",
+      "02-ausfuellen.png": "5e629ccf4decb0bdc6b46c025c32f2a26064036f06685ceb11600c4a80f9ed1c"
+    }
+  },
+  "discuss": {
+    "eingabe": "7ad539f77f4104de55476fe4433749179b0edea45d34883ef4dabe51a7b14f95",
+    "screenshots": {
+      "01-direktnachricht.png": "5e6bd4add7522a5a0526c5185e886be0fd0e3a26eef9d449d3194a3191a4d047",
+      "02-kanal.png": "a31a4fccc4082814e6a3c17ca132cd5ddc8b364e2367f3e249cb2a0de39aac4e"
+    }
+  },
+  "duplizieren": {
+    "eingabe": "94c88eb60b331ea8b34706c25edb0c15334c34cf6e09eb7f5cd2bd28fa5ff523",
+    "screenshots": {
+      "01-aktion.png": "021ab15ebbb39a1d274271957d0844b51afd17c9145001537f0614987ccbe459"
+    }
+  },
+  "exportieren": {
+    "eingabe": "acbf5ba39284628999bc87ae2d125a080d36424fc026ae4a3567f8d0ea4f1b9f",
+    "screenshots": {
+      "01-aktion.png": "c383b8122a2a7e838c12716c535244c1f66d5d5cdced7f16b3d4df7b7ff497d2",
+      "02-dialog.png": "2defa172993cb2d42d819c1354ca5070d414830826e0588a1a1cd7751374bf89"
+    }
+  },
+  "favoriten": {
+    "eingabe": "9c9b8bdff5f90dc46a497e1700d133e2679a684ef73673b83bf2986c4ea55dad",
+    "screenshots": {
+      "01-suche-speichern.png": "44ee6ab4b7cc7837c594b4dacdf4ecb961315d2c8360ada741af013228265d4b"
+    }
+  },
+  "filtern": {
+    "eingabe": "01ddcf516aea9248ed456966abd217c71905816bf056b03c2ca1bd654cb3613f",
+    "screenshots": {
+      "01-filter-oeffnen.png": "a0d614cf2780f9db0e7dd58659d7bec52df0a10cf4b30f26664be6e6f4704016",
+      "02-gefiltert.png": "0ddd607cda1d246675b91273e38060691df19fa0cfd61438a0f9ba657c62aeba"
+    }
+  },
+  "folgen": {
+    "eingabe": "3bb71eb4b3e176d96e24e944c947e1f9ec1ae2b054880f88680f670082d817ef",
+    "screenshots": {
+      "01-follower.png": "eb3340ec5461c8984f287635e8bfc17ed2d8b660469ca602fd3218a7c652831a"
+    }
+  },
+  "gruppieren": {
+    "eingabe": "1e9891f17bdb4f8a0ec845a6f7e948616e11f93c0cab1fdaa2d64cf9799bd055",
+    "screenshots": {
+      "01-gruppieren-nach.png": "0b4626bf2154b273ba9b4d436fb8c1e6faecb8f6e0736338a7a87fe50dcad0b9",
+      "02-gruppiert.png": "18df573a817f0c69a259ebf9f6142062904be932aaeac805f41cd72feb1a085b"
+    }
+  },
+  "importieren": {
+    "eingabe": "7ad141cff9f908db617654e516aa99802aa2b9bd7eb55572a2ddedf34a767466",
+    "screenshots": {
+      "01-menue.png": "cfa9bfaa9a00d3111e50c9c18332846026049792054bd6aab42a330df11d4788",
+      "02-importseite.png": "e97699a274cd1767d1d5362d47cbb6353765b6029358be670fe3ef2697f44ac3"
+    }
+  },
+  "passkey-anmelden": {
+    "eingabe": "c8de5987461a64ae0cb1a59bd50da9c75d8dc90503ecaa4285f1052165babc95",
+    "screenshots": {
+      "01-anmeldeseite.png": "a1f0a183f4cb70b7d3d54b0a2a8d8dae9b7cb4eb8f5f1a9fed063f2bb12b1d21",
+      "02-angemeldet.png": "01376d6d56f423da43e12d3f01ee3ced307ccc4890de948773b8984d3d665713"
+    }
+  },
+  "passkey-einrichten": {
+    "eingabe": "c8de5987461a64ae0cb1a59bd50da9c75d8dc90503ecaa4285f1052165babc95",
+    "screenshots": {
+      "01-reiter-sicherheit.png": "17eee230c8559c64151784f37199c28e6d9db2a198ed722bc44e5c1bf5aa1c6a",
+      "02-name.png": "1d9b2ba5e5ef89e7bc2264138bb5818f37d28a24803705506e926fa673eccb13",
+      "03-eingerichtet.png": "f184ace675af2f66a698820495d91bfca84ce5a7ae55b246e5844f1d7804edb0"
+    },
+    "video": {
+      "datei": "passkey-einrichten.mp4",
+      "sha256": "8f6fa0d0e032c1da8aaeac3d769316e6b05b82d4957f80b4c804b2c1ce02f6e8",
+      "eingabe": "c8de5987461a64ae0cb1a59bd50da9c75d8dc90503ecaa4285f1052165babc95"
+    }
+  },
+  "passkey-entfernen": {
+    "eingabe": "c8de5987461a64ae0cb1a59bd50da9c75d8dc90503ecaa4285f1052165babc95",
+    "screenshots": {
+      "01-menue.png": "e214e0ddaab634891e8c050364a7b49fdf46a7f2c8f9154c9477c2eab2b488a2",
+      "02-bestaetigen.png": "63def19ce85b8f2be368ffac640e2412f0813efb7da8df45f81079daae55f52e",
+      "03-entfernt.png": "54bdeb5cbc8782bdc079ac4d0b35e99473fcba6cd4436f7faee91d66d7937e42"
+    }
+  },
+  "passwort-aendern": {
+    "eingabe": "f0779041499da35c7371508ec9ce94c0c44b1b3c92708c3f105c4f63a8c5809f",
+    "screenshots": {
+      "01-reiter-sicherheit.png": "67b23884800d3720a1691116b8bcae236f7d0b92bb66a0fe172922960a467e0e",
+      "02-identitaet-bestaetigen.png": "6874d244f547d3cace6a5710bb8acce4898901bb8047c0211b2c6011e69059be",
+      "03-neues-passwort.png": "ce3d153038be15ec82c48fcd7e0c66b3aba71c6555a575791aa2dcc8dc7645c5"
+    },
+    "video": {
+      "datei": "passwort-aendern.mp4",
+      "sha256": "0c290a9709c798a342548167b0c6be1dca86e76556c7ebebedbad82b59212724",
+      "eingabe": "f0779041499da35c7371508ec9ce94c0c44b1b3c92708c3f105c4f63a8c5809f"
+    }
+  },
+  "passwort-fuer-andere-zuruecksetzen": {
+    "eingabe": "50f49e040e18b8737a8c2f5ac46087e0facde031117c8c5b4718124fc4f65c15",
+    "screenshots": {
+      "01-aktion.png": "ec7ca8ffdabc485693f535ee993a9939162ea87ca2b4238bfa27b61cd902108e",
+      "02-dialog.png": "46e6804fb99bfdaae32fef9d1478c015dcde81b74d245cdf2b50cad23f4c829f"
+    }
+  },
+  "passwort-zuruecksetzen": {
+    "eingabe": "ace461ca5a7c776fbbab775ac785845a50138e03096dc74d14f52ed2795c527b",
+    "screenshots": {
+      "01-link.png": "43294d0ec0f0a41013e60642f66cdec33daa7dc2073deec071a0a4e84193e175",
+      "02-formular.png": "d1569c4a48fe9afd0348de51e51d03043aeec8efbfad2c3ccbfa2ec5051430b7"
+    }
+  },
+  "posteingang": {
+    "eingabe": "3f9f87cf3334d6842d771a7f3c2750eb93694d8d0604761598046382a8072e19",
+    "screenshots": {
+      "01-nachrichtenmenue.png": "53ba3a801940bfb3273d37f83b770b36c9a68bb698aebfd845f44ceaf464fb21"
+    }
+  },
+  "profil-und-signatur": {
+    "eingabe": "b29613c61f57f031e3ea7d38cf53f553ac59469d173785b54fd8f3873a9c5e5d",
+    "screenshots": {
+      "01-praeferenzen.png": "9d5f8f5ff97e5d274866ca42ff755b448eb448c32115e2df716829349163cf1f"
+    }
+  },
+  "sortieren-und-blaettern": {
+    "eingabe": "60b002f8f29fc11b138402cb1595bdacc71208135fdd9bfbecfa1ea746052a4f",
+    "screenshots": {
+      "01-sortiert.png": "9c214d04f7c803a103a46353c030e2561fdd4a8a249a0553271df5a48da52902",
+      "02-blaettern.png": "3e4e96292685c348b898f752ecbcc0262ba6d5c1202da6b06c0324ba811a3693"
+    }
+  },
+  "spalten-anpassen": {
+    "eingabe": "9ba9b016093c878821345eb3350c96288577baee51795aba5d383bc7c9371609",
+    "screenshots": {
+      "01-spalten-waehlen.png": "52463f84ca514ce51ab974a35a6e9189a639465eb062575888fbde20ba311530"
+    }
+  },
+  "sprache-wechseln": {
+    "eingabe": "f806d98b5c961c28b2a26372dfbb913daa747e4fcb42ca1b3a0273c2c4249e14",
+    "screenshots": {
+      "01-benutzermenue.png": "675250799a0204ee128c9a7a74a796c5c18597249f068b8b2643119e0f802294",
+      "02-sprache-waehlen.png": "48a510fb56edd56e3ae6bf2d5634b4e8087fe7981f19c2816c2a943fa6567158"
+    }
+  },
+  "suchen": {
+    "eingabe": "8c1c604823facd038995a0e19448f14cb47656233b40e4350e3bf86076588331",
+    "screenshots": {
+      "01-suchbegriff.png": "b79d8df603a9eb99df7365fe340f223f7eb530258d2d82f1f304bcdbd3ddc5d0",
+      "02-ergebnis.png": "eff5ffe05b0915294ffefa0291bacea5297d23dcb5e7c6d9e02b0617636407eb"
+    }
+  },
+  "tastaturkuerzel": {
+    "eingabe": "87de361cebf820a0d43b30bc6cd833f04519814cf1af2700802d8bc7c6fce038",
+    "screenshots": {
+      "01-ueberlagerung.png": "408287b983d38c4641412ec8799e3beca086efbe698aeb9ce0a196ee1e4df80d"
+    }
+  },
+  "zeitzone-einstellen": {
+    "eingabe": "edfb0038b62c35a98a0bb474c9b3dd113b4c7cb6f6a29e7f82e09a1e748bcec5",
+    "screenshots": {
+      "01-reiter-kalender.png": "6100dab63a5815d5406e86098e4c3e13da244eef795971a9e7ea7cf08f4ea3db"
+    }
+  },
+  "zugriffsrechte-setzen": {
+    "eingabe": "cbfd41e39a05428872058b68290f2c29cb659c0b9bebc3de47e901df30e6e825",
+    "screenshots": {
+      "01-rolle.png": "46e6804fb99bfdaae32fef9d1478c015dcde81b74d245cdf2b50cad23f4c829f"
+    }
+  },
+  "zwei-faktor-anmelden": {
+    "eingabe": "67c201b8610bb13e55f8a058a6bb15f909cc72f338cb56ca308ae325f6b094a1",
+    "screenshots": {
+      "01-passwort.png": "7ba36549a51c63fc3d042e33e5b8711f4b625f89514356b80c58ffd1c2ec5a17",
+      "02-code.png": "7774b426c0e98e691654ef130ee8f026971544283e1d959f21a49dbd4b40e2df",
+      "03-angemeldet.png": "16125b75a758643002215374b7424f3a4fab8d890356c140b99d8c99342bed49"
+    }
+  },
+  "zwei-faktor-einrichten": {
+    "eingabe": "67c201b8610bb13e55f8a058a6bb15f909cc72f338cb56ca308ae325f6b094a1",
+    "screenshots": {
+      "01-reiter-sicherheit.png": "94fc0277186e4ab80cfa09d25da10a34dc0c5d381b43c379df6dce5ee18ee5a7",
+      "02-qr-code.png": "9cc982c3c0afc81300cc585d2987eddf15d90cce05bf0fb5f269d27fe97f383a",
+      "03-aktiviert.png": "9865b15c1ac9ca38e380ebe646a4a2286003c21ff23668be816070782ef932a9"
+    },
+    "video": {
+      "datei": "zwei-faktor-einrichten.mp4",
+      "sha256": "6f2e23fa6d17278fc1c89458f280cdac11fa5dc827118f9c8c45448a8954a074",
+      "eingabe": "67c201b8610bb13e55f8a058a6bb15f909cc72f338cb56ca308ae325f6b094a1"
+    }
+  }
+}
